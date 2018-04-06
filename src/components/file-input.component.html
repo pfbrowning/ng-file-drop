@@ -1,0 +1,6 @@
+<drag-drop-handler #dragDropHandler (filesDropped)="onFilesDropped($event)">
+    <div (click)="fileInput.click()">
+        <ng-content></ng-content>
+    </div>
+    <input type="file" #fileInput style="display:none;" (change)="onChange()" multiple [accept]="allowedExtensions">
+</drag-drop-handler>
