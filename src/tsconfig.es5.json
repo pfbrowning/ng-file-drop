@@ -22,7 +22,7 @@
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
     "flatModuleOutFile": "ng-file-drop.js",
-    "flatModuleId": "ng-file-drop"
+    "flatModuleId": "@browninglogic/ng-file-drop"
   },
   "files": [
     "./index.ts"
