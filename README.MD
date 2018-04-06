@@ -1,5 +1,11 @@
 # ng-file-drop
 
+Customizable file input component with drag &amp; drop functionality for Angular 5
+
+## Disclaimer
+
+This project is not yet complete, and should be considered a work-in-progress.
+
 ## Installation
 
 To install this library, run:
