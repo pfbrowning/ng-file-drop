@@ -3,22 +3,15 @@
  */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Component } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { SampleModule }  from 'ng-file-drop';
-
-@Component({
-  selector: 'app',
-  template: `<sample-component></sample-component>`
-})
-class AppComponent {}
+import { PlaygroundComponent } from './components/playground.component';
+import { FileDropModule }  from '../dist';
 
 @NgModule({
-  bootstrap: [ AppComponent ],
-  declarations: [ AppComponent ],
-  imports: [ BrowserModule, SampleModule ]
+  bootstrap: [ PlaygroundComponent ],
+  declarations: [ PlaygroundComponent ],
+  imports: [ BrowserModule, FileDropModule ]
 })
-class AppModule {}
+class PlaygroundModule {}
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+platformBrowserDynamic().bootstrapModule(PlaygroundModule);

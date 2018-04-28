@@ -3,7 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DragDropHandlerComponent } from './drag-drop-handler.component';
 import { RejectionReasons } from '../models/rejection-reasons.model';
 import { FileRejection } from '../models/file-rejection.model';
-import { Utils } from 'shared/utils';
+import { Utils } from '../shared/utils';
 import * as lodash from "lodash";
 
 @Component({

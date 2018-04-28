@@ -26,6 +26,7 @@
 
       // other libraries
       rxjs: 'npm:rxjs',
+      lodash: 'node_modules/lodash/lodash.js',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
       'ng-file-drop': '../dist'
     },
