@@ -1,5 +1,4 @@
 import { Component, Input, Output, OnInit, EventEmitter, ViewChild, forwardRef } from '@angular/core';
-import { Utils } from 'app/shared/util/utils';
 
 @Component({
   selector: 'drag-drop-handler',
@@ -39,10 +38,9 @@ export class DragDropHandlerComponent {
     }
 
     onDrop(event) {
-        var files = Utils.fileListToArray(event.dataTransfer.files);
         event.preventDefault();
         this.decrementDragCounter();
-        this.filesDropped.emit(files);
+        this.filesDropped.emit(Array.from(event.dataTransfer.files));
     }
 
     onDragOver(event) {
