@@ -33,6 +33,10 @@ export class FileInputComponent implements ControlValueAccessor {
     return this._selectedFiles;
   }
 
+  public get filesSelected() : boolean {
+    return this.selectedFiles.length > 0;
+  }
+
   public get draggingOver() : boolean {
     return this.dragDropHandler.draggingOver;
   }

@@ -1,3 +1,15 @@
-<file-input>
-    Drag Here
+<file-input #fileInput>
+    <div [class.draggingOver]="fileInput.draggingOver">
+        <ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
+        <ng-template #filesSelected>
+            <ul>
+                <li *ngFor="let file of fileInput.selectedFiles">
+                    {{file['name']}}
+                </li>
+            </ul>
+        </ng-template>
+        <ng-template #noFilesSelected>
+            <p>Click or Drag Files Here</p>
+        </ng-template>
+    </div>
 </file-input>

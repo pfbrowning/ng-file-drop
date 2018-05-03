@@ -7,6 +7,7 @@ import { FileDropModule }  from '../../dist';
 
 @Component({
   selector: 'playground',
-  templateUrl: 'components/playground.component.html'
+  templateUrl: 'components/playground.component.html',
+  styleUrls: ['components/playground.component.css']
 })
 export class PlaygroundComponent {}
