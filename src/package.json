@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/browninglogic/ng-file-drop"
+    "url": "https://github.com/pfbrowning/ng-file-drop"
   },
   "author": {
     "name": "Patrick Browning",
@@ -14,7 +14,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/browninglogic/ng-file-drop/issues"
+    "url": "https://github.com/pfbrowning/ng-file-drop/issues"
   },
   "main": "ng-file-drop.umd.js",
   "module": "ng-file-drop.js",

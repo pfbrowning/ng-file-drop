@@ -1,7 +1,7 @@
 {
   "generator-angular2-library": {
     "promptValues": {
-      "gitRepositoryUrl": "https://github.com/browninglogic/ng-file-drop"
+      "gitRepositoryUrl": "https://github.com/pfbrowning/ng-file-drop"
     }
   }
 }
