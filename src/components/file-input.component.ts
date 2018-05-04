@@ -20,13 +20,13 @@ import * as lodash from "lodash";
 
 export class FileInputComponent implements ControlValueAccessor {
   @Input() allowedExtensions : string;
+  @Input() maxFileSize : number;
   @Output('blur') blur = new EventEmitter();
   @Output('selectionChanged') selectionChanged = new EventEmitter<File[]>();
   @Output('filesRejected') filesRejected = new EventEmitter<FileRejection[]>();
   @ViewChild('fileInput') fileInputViewChild;
   @ViewChild('dragDropHandler') dragDropHandler : DragDropHandlerComponent;
   private _selectedFiles : File[] = new Array<File>();
-  private maxFileSize : number = 4194304;
 
   public get selectedFiles() : File[] {
     return this._selectedFiles;
@@ -92,8 +92,8 @@ export class FileInputComponent implements ControlValueAccessor {
       adding duplicate file entries.
       */
       if(!lodash.some(this.selectedFiles, selectedFile => Utils.areFilesEquivalent(file, selectedFile))) {
-        //If the file is too large, then reject it.
-        if(file.size > this.maxFileSize) {
+        //If a maxFileSize is specified and the file is too large, then reject it.
+        if(this.maxFileSize != null && file.size > this.maxFileSize) {
           rejectedFiles.push(new FileRejection(file, RejectionReasons.FileSize));
         }
         //If allowed extensions are specified and the file doesn't match an allowed extension, then reject it.
