@@ -15,6 +15,10 @@ export class DragDropHandlerComponent {
     and increment/decrement it accordingly with each dragenter and dragleave event.
     https://stackoverflow.com/questions/7110353/html5-dragleave-fired-when-hovering-a-child-element
     */
+
+    /**
+     * Exposes whether the user is currently dragging a file over the component
+     */
     public get draggingOver() : boolean {
         return this.dragCounter > 0;
     }
@@ -37,9 +41,13 @@ export class DragDropHandlerComponent {
         this.dragCounter--;
     }
 
+    //When the user drops a file
     onDrop(event) {
+        //Tell the browser not to do its default thing
         event.preventDefault();
+        //Decrement the drag counter in order to turn off the drag indicator
         this.decrementDragCounter();
+        //Emit the dragged files via the filesDropped event
         this.filesDropped.emit(Array.from(event.dataTransfer.files));
     }
 
