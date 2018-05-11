@@ -9,7 +9,9 @@
       "dom"
     ],
     "skipLibCheck": true,
-    "types": [],
+    "types": [
+      "jasmine"
+    ],
     "target": "es5",
   }
 }
