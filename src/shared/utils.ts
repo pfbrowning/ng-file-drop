@@ -16,7 +16,7 @@ export class Utils {
         
         /*
         lastModifiedDate works in IE and Edge, but is deprecated, so it's better to use
-        lastModifed when it's available, and fall back to lastModifiedDate when it's not.
+        lastModified when it's available, and fall back to lastModifiedDate when it's not.
         https://stackoverflow.com/questions/44115976/files-properties-lastmodified-vs-lastmodifieddate
         */
         if(fileA['lastModified']) {
