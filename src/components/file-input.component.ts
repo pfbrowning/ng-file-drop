@@ -89,7 +89,7 @@ export class FileInputComponent implements ControlValueAccessor {
    * user-specified maxFileSize or allowedExtensions limitation.
    * @param files FileList to iterate through for new Files to add
    */
-  private selectFiles(filesToSelect : File[]) {
+  selectFiles(filesToSelect : File[]) {
     var selectedLengthBeforeSelection = this.selectedFiles.length;
     var rejectedFiles = new Array<FileRejection>();
 

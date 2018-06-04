@@ -51,7 +51,7 @@ describe('Drag & Drop Handler Component', () => {
 
         handlerInstance.filesDropped.subscribe(files => {
             //Ensure that the file emitted matches the file that was dropped
-            expect(files.length).toBe(1, '');
+            expect(files.length).toBe(1);
             expect(files[0].name).toBe('testfile.txt');
             //Explicitly call done to ensure that these tests were actually hit
             done()
