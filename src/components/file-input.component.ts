@@ -84,14 +84,18 @@ export class FileInputComponent implements ControlValueAccessor {
   }
 
   /**
-   * Adds to selectedFiles each valid provided file which doesn't already exist in selectedFiles 
-   * and rejects invalid files, where validity is defined by whether the file conflicts with any
+   * Adds to selectedFiles each valid provided file and rejects invalid files, 
+   * where validity is defined by whether the file conflicts with any
    * user-specified maxFileSize or allowedExtensions limitation.
-   * @param files FileList to iterate through for new Files to add
+   * @param filesToSelect File array to iterate through for new Files to add
    */
   selectFiles(filesToSelect : File[]) {
-    var selectedLengthBeforeSelection = this.selectedFiles.length;
     var rejectedFiles = new Array<FileRejection>();
+
+    //Clear out any previous selections
+    if(this.selectedFiles.length > 0) {
+      this._selectedFiles = new Array<File>();
+    }
 
     filesToSelect.forEach(file => {
       //If a maxFileSize is specified and the file is too large, then reject it.
@@ -108,9 +112,8 @@ export class FileInputComponent implements ControlValueAccessor {
       }
     })
 
-    if(selectedLengthBeforeSelection != this.selectedFiles.length) {
-      this.onSelectionChanged(this.selectedFiles);
-    }
+    this.onSelectionChanged(this.selectedFiles);
+
     if(rejectedFiles.length > 0) {
       this.filesRejected.emit(rejectedFiles);
     }
