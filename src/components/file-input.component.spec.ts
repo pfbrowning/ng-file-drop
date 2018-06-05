@@ -154,6 +154,39 @@ describe('File Input Component', () => {
             new FileRejection(testFileBig, RejectionReasons.FileSize)
         ]);
     });
+
+    it("should clear out previous selections when a new selection is made", () => {
+        //Check the state of the component before selecting files
+        expect(handlerInstance.selectedFiles.length).toBe(0);
+        expect(handlerInstance.filesSelected).toBe(false);
+        expect(selectionChangedSpy).not.toHaveBeenCalled();
+
+        //Select some files
+        handlerInstance.selectFiles([testFile1, testFile2]);
+
+        //Check the state of the component after file selection 
+        expect(handlerInstance.selectedFiles.length).toBe(2);
+        expect(handlerInstance.filesSelected).toBe(true);
+        expect(selectionChangedSpy).toHaveBeenCalledTimes(1);
+        expect(selectionChangedSpy).toHaveBeenCalledWith([testFile1, testFile2]);
+
+        //Select a different file
+        handlerInstance.selectFiles([testFileJson])
+
+        //Check the state of the component after file selection 
+        expect(handlerInstance.selectedFiles.length).toBe(1);
+        expect(selectionChangedSpy).toHaveBeenCalledTimes(2);
+        expect(selectionChangedSpy).toHaveBeenCalledWith([testFileJson]);
+
+        //Select a different set of files
+
+        handlerInstance.selectFiles([testFile1, testFileBig]);
+
+        //Check the state of the component after file selection 
+        expect(handlerInstance.selectedFiles.length).toBe(2);
+        expect(selectionChangedSpy).toHaveBeenCalledTimes(3);
+        expect(selectionChangedSpy).toHaveBeenCalledWith([testFile1, testFileBig]);
+    });
 });
 
 
