@@ -3,7 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DragDropHandlerComponent } from './drag-drop-handler.component';
 import { RejectionReasons } from '../models/rejection-reasons.model';
 import { FileRejection } from '../models/file-rejection.model';
-import { Utils } from '../shared/utils';
+//import { Utils } from '../shared/utils';
 import * as lodash from "lodash";
 
 @Component({
@@ -94,24 +94,17 @@ export class FileInputComponent implements ControlValueAccessor {
     var rejectedFiles = new Array<FileRejection>();
 
     filesToSelect.forEach(file => {
-      /*
-      It's necessary to compare each file for equality because modern browsers will fire both the
-      drop event and the change event when the user drops files, so we need to ensure we're not
-      adding duplicate file entries.
-      */
-      if(!lodash.some(this.selectedFiles, selectedFile => Utils.areFilesEquivalent(file, selectedFile))) {
-        //If a maxFileSize is specified and the file is too large, then reject it.
-        if(this.maxFileSize != null && file.size > this.maxFileSize) {
-          rejectedFiles.push(new FileRejection(file, RejectionReasons.FileSize));
-        }
-        //If allowed extensions are specified and the file doesn't match an allowed extension, then reject it.
-        else if (this.allowedExtensionsArray != null && !lodash.some(this.allowedExtensionsArray, extension => file.name.endsWith('.' + extension))) {
-          rejectedFiles.push(new FileRejection(file, RejectionReasons.FileType));
-        }
-        //If the file passes the validation checks, then add it to the selection array.
-        else {
-          this.selectedFiles.push(file);
-        }
+      //If a maxFileSize is specified and the file is too large, then reject it.
+      if(this.maxFileSize != null && file.size > this.maxFileSize) {
+        rejectedFiles.push(new FileRejection(file, RejectionReasons.FileSize));
+      }
+      //If allowed extensions are specified and the file doesn't match an allowed extension, then reject it.
+      else if (this.allowedExtensionsArray != null && !lodash.some(this.allowedExtensionsArray, extension => file.name.endsWith('.' + extension))) {
+        rejectedFiles.push(new FileRejection(file, RejectionReasons.FileType));
+      }
+      //If the file passes the validation checks, then add it to the selection array.
+      else {
+        this.selectedFiles.push(file);
       }
     })
 
