@@ -56,17 +56,7 @@ describe('File Input Component', () => {
         testFileBig = <File> testBlob4;
     });
 
-    it('should properly handle basic file selection', (done) => {
-        handlerInstance.selectionChanged.subscribe(selectedFiles => {
-            //Ensure that the file emitted matches the file that was dropped
-            expect(selectedFiles[0].name).toBe(testFile1.name);
-            expect(selectedFiles[0].size).toBe(testFile1.size);
-            expect(selectedFiles[1].name).toBe(testFile2.name);
-            expect(selectedFiles[1].size).toBe(testFile2.size);
-            //Explicitly call done to ensure that these tests were actually hit
-            done()
-        });
-
+    it('should properly handle basic file selection', () => {
         //Check the state of the component before selecting files
         expect(handlerInstance.selectedFiles.length).toBe(0);
         expect(handlerInstance.filesSelected).toBe(false);
@@ -80,6 +70,11 @@ describe('File Input Component', () => {
         expect(handlerInstance.filesSelected).toBe(true);
         expect(selectionChangedSpy).toHaveBeenCalledTimes(1);
         expect(filesRejectedSpy).not.toHaveBeenCalled();
+
+        expect(selectionChangedSpy).toHaveBeenCalledWith([testFile1, testFile2]);
+
+        expect(handlerInstance.selectedFiles[0]).toBe(testFile1);
+        expect(handlerInstance.selectedFiles[1]).toBe(testFile2);
     });
 
     it('should reject any files larger than the specified max size', () => {
