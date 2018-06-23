@@ -18,12 +18,11 @@ import * as lodash from "lodash";
   ]
 })
 
-export class FileInputComponent implements ControlValueAccessor {
+export class FileInputComponent {
   /**Allowed extensions can be optionally specified as a comma-separated list*/
   @Input() allowedExtensions : string;
   /**maxFileSize can be optionally specified in bytes*/
   @Input() maxFileSize : number;
-  @Output('blur') blur = new EventEmitter();
   @Output('selectionChanged') selectionChanged = new EventEmitter<File[]>();
   @Output('filesRejected') filesRejected = new EventEmitter<FileRejection[]>();
   @ViewChild('fileInput') fileInputViewChild;
@@ -48,27 +47,6 @@ export class FileInputComponent implements ControlValueAccessor {
   /**User-specified allowedExtensions as an array*/
   private get allowedExtensionsArray() : string[] {
     return this.allowedExtensions != null ? this.allowedExtensions.split(',') : null;
-  }
-
-  propagateChange = (_: any) => {};
-  propagateTouched = () => {};
-
-  onBlur() {
-      this.propagateTouched();
-      this.blur.emit();
-  }
-
-  writeValue(newFiles : File[]) {
-    newFiles = newFiles != null ? newFiles : new Array<File>();
-    this.selectFiles(newFiles);
-  }
-
-  registerOnChange(fn) {
-      this.propagateChange = fn;
-  }
-
-  registerOnTouched(fn) {
-      this.propagateTouched = fn;
   }
 
   private get fileInput() : HTMLInputElement {
@@ -136,7 +114,6 @@ export class FileInputComponent implements ControlValueAccessor {
   }
 
   private onSelectionChanged(selectedFiles : File[]) : void {
-    this.propagateChange(selectedFiles);
     this.selectionChanged.emit(selectedFiles);
   }
 }
