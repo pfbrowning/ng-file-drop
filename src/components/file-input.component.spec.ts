@@ -12,6 +12,7 @@ describe('File Input Component', () => {
     let handlerInstance: FileInputComponent;
     let selectionChangedSpy : jasmine.Spy;
     let filesRejectedSpy : jasmine.Spy;
+    let filesDroppedSpy : jasmine.Spy;
     let testFile1 : File;
     let testFile2 : File;
     let testFileJson : File;
@@ -34,9 +35,10 @@ describe('File Input Component', () => {
         handlerFixture = TestBed.createComponent(FileInputComponent);
         handlerInstance = handlerFixture.componentInstance;
 
-        //Spy on the selection changed and filesRejected event emitters
+        //Initialize the spies
         selectionChangedSpy = spyOn(handlerInstance.selectionChanged, 'emit').and.callThrough();
         filesRejectedSpy = spyOn(handlerInstance.filesRejected, 'emit').and.callThrough();
+        filesDroppedSpy = spyOn(handlerInstance.dragDropHandler.filesDropped, 'emit').and.callThrough();
 
         //Mock up a few test files
         let testBlob1 = new Blob(["Test file content 1"], {type: 'text/plain'});
@@ -186,6 +188,50 @@ describe('File Input Component', () => {
         expect(handlerInstance.selectedFiles.length).toBe(2);
         expect(selectionChangedSpy).toHaveBeenCalledTimes(3);
         expect(selectionChangedSpy).toHaveBeenCalledWith([testFile1, testFileBig]);
+    });
+
+    it("should properly clear the selection when told to do so", () => {
+        //Check the state of the component before selecting files
+        expect(handlerInstance.selectedFiles.length).toBe(0);
+        expect(handlerInstance.filesSelected).toBe(false);
+        expect(selectionChangedSpy).not.toHaveBeenCalled();
+
+        //Select some files
+        handlerInstance.selectFiles([testFile1, testFile2]);
+
+        //Check the state of the component after file selection 
+        expect(handlerInstance.selectedFiles.length).toBe(2);
+        expect(handlerInstance.filesSelected).toBe(true);
+        expect(selectionChangedSpy).toHaveBeenCalledTimes(1);
+        expect(selectionChangedSpy).toHaveBeenCalledWith([testFile1, testFile2]);
+
+        //Tell the component to clear the selection
+        handlerInstance.clearSelection();
+
+        //Ensure that no files are selected
+        expect(handlerInstance.selectedFiles.length).toBe(0);
+        expect(handlerInstance.filesSelected).toBe(false);
+
+        //Check that selectionChanged was emitted a second time to clear the selection
+        expect(selectionChangedSpy).toHaveBeenCalledTimes(2);
+    });
+
+    it("should properly select dropped files", () => {
+        //Check the state of the component before selecting files
+        expect(handlerInstance.selectedFiles.length).toBe(0);
+        expect(handlerInstance.filesSelected).toBe(false);
+        expect(selectionChangedSpy).not.toHaveBeenCalled();
+        expect(filesDroppedSpy).not.toHaveBeenCalled();
+
+        //Simulate the dropping of files
+        handlerInstance.dragDropHandler.filesDropped.emit([testFile1, testFile2, testFileBig]);
+
+        //Check the state of the component after file drop
+        expect(handlerInstance.selectedFiles.length).toBe(3);
+        expect(handlerInstance.filesSelected).toBe(true);
+        expect(filesDroppedSpy).toHaveBeenCalledTimes(1);
+        expect(selectionChangedSpy).toHaveBeenCalledTimes(1);
+        expect(selectionChangedSpy).toHaveBeenCalledWith([testFile1, testFile2, testFileBig]);
     });
 });
 
