@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { PlaygroundComponent } from './components/playground.component';
-import { FileDropModule }  from '../dist';
+import { FileDropModule }  from '../src';
 
 @NgModule({
   bootstrap: [ PlaygroundComponent ],
