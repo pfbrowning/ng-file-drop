@@ -2,7 +2,8 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'nfd-drag-drop-handler',
-  templateUrl: './drag-drop-handler.component.html'
+  templateUrl: './drag-drop-handler.component.html',
+  styleUrls: [ './drag-drop-handler.component.css' ]
 })
 
 export class DragDropHandlerComponent {
