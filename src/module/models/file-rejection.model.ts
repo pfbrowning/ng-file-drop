@@ -1,8 +1,8 @@
-import { RejectionReasons } from "./rejection-reasons.model";
+import { RejectionReasons } from './rejection-reasons.model';
 
 export class FileRejection {
     constructor(
-        public readonly file : File,
-        public readonly rejectionReason : RejectionReasons
+        public readonly file: File,
+        public readonly rejectionReason: RejectionReasons
     ) {}
 }

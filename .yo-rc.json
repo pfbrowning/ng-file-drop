@@ -23,7 +23,7 @@
     "otherDependencies": [],
     "additionalPackageFiles": [],
     "dependenciesRange": "^",
-    "ngPrefix": "my-lib",
+    "ngPrefix": "",
     "testingFramework": "karma",
     "useGreenkeeper": true,
     "useCompodoc": true,

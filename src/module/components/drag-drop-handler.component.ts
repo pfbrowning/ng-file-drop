@@ -1,13 +1,13 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'drag-drop-handler',
+  selector: 'nfd-drag-drop-handler',
   templateUrl: './drag-drop-handler.component.html'
 })
 
 export class DragDropHandlerComponent {
     @Output('filesDropped') filesDropped = new EventEmitter<File[]>();
-    private dragCounter : number = 0;
+    private dragCounter = 0;
 
     /*
     In order to maintain the state of whether the user is currently dragging a file
@@ -19,7 +19,7 @@ export class DragDropHandlerComponent {
     /**
      * Exposes whether the user is currently dragging a file over the component
      */
-    public get draggingOver() : boolean {
+    public get draggingOver(): boolean {
         return this.dragCounter > 0;
     }
 
@@ -37,17 +37,18 @@ export class DragDropHandlerComponent {
     dragleave AND drop when the user drops a file.
     */
     private decrementDragCounter() {
-        if(this.dragCounter > 0)
-        this.dragCounter--;
+        if (this.dragCounter > 0) {
+            this.dragCounter--;
+        }
     }
 
-    //When the user drops a file
+    // When the user drops a file
     onDrop(event) {
-        //Tell the browser not to do its default thing
+        // Tell the browser not to do its default thing
         event.preventDefault();
-        //Decrement the drag counter in order to turn off the drag indicator
+        // Decrement the drag counter in order to turn off the drag indicator
         this.decrementDragCounter();
-        //Emit the dragged files via the filesDropped event
+        // Emit the dragged files via the filesDropped event
         this.filesDropped.emit(Array.from(event.dataTransfer.files));
     }
 

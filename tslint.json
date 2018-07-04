@@ -109,13 +109,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "my-lib",
+      "nfd",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "my-lib",
+      "nfd",
       "kebab-case"
     ],
     "use-input-property-decorator": true,
