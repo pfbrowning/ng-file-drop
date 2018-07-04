@@ -23,7 +23,7 @@
     "otherDependencies": [],
     "additionalPackageFiles": [],
     "dependenciesRange": "^",
-    "ngPrefix": "",
+    "ngPrefix": "nfd",
     "testingFramework": "karma",
     "useGreenkeeper": true,
     "useCompodoc": true,
