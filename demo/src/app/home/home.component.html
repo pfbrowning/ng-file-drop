@@ -21,9 +21,20 @@
 
 <section class="home">
   <div class="container">
-		<!-- put your content here-->
-		<p>Put your content here. Typically, examples of your library in action (directives, components...)</p>
-		<my-lib-component></my-lib-component>
-		<p>Happy ng-hacking!</p>
+	<nfd-file-input #fileInput allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
+		<div class="btnFileDrop" [class.draggingOver]="fileInput.draggingOver">
+			<ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
+			<ng-template #filesSelected>
+				<ul>
+					<li *ngFor="let file of fileInput.selectedFiles">
+						{{file['name']}}
+					</li>
+				</ul>
+			</ng-template>
+			<ng-template #noFilesSelected>
+				<span>Click or Drag Files Here</span>
+			</ng-template>
+		</div>
+	</nfd-file-input>
   </div>
 </section>

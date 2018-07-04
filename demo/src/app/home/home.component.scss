@@ -7,3 +7,17 @@
 .home {
     margin-top: 1.0rem;
 }
+
+.btnFileDrop {
+    background-color:lightgrey;
+    border:1px solid grey;
+    border-radius:5px;
+}
+
+.btnFileDrop :hover {
+    cursor:progress;
+}
+
+.draggingOver {
+    background-color:yellow;
+}
