@@ -32,9 +32,26 @@
 				</ul>
 			</ng-template>
 			<ng-template #noFilesSelected>
-				<span>Click or Drag Files Here</span>
+				<ng-container *ngIf="fileInput.draggingOver; then dragging else notDragging"></ng-container>
+				<ng-template #dragging>Drop Files Here</ng-template>
+				<ng-template #notDragging>Click or Drag Files Here</ng-template>
 			</ng-template>
 		</div>
 	</nfd-file-input>
+
+	<div>
+		<div class="diagnosticsBox">
+			<table>
+				<tr>
+					<td>
+						Dragging
+					</td>
+					<td>
+						{{fileInput.draggingOver}}
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
   </div>
 </section>

@@ -20,3 +20,28 @@
 .draggingOver {
     background-color:lightblue;
 }
+
+
+.diagnosticsBox li {
+    margin:0;
+    list-style:none;
+}
+
+.diagnosticsBox ul {
+    padding:0;
+    margin:0;
+}
+
+.diagnosticsBox table td:first-child {
+    padding-right: 8px;
+}
+
+.diagnosticsBox {
+    background-color:#e6e6e6;
+    border-radius: 10px;
+    border:2px solid lightgrey;
+    padding:10px 15px;
+    margin-top:10px;
+    margin-bottom:10px;
+    display: inline-block;
+}
