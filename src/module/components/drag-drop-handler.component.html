@@ -1,3 +1,3 @@
-<div class="dragDropHandler" (dragenter)="onDragEnter($event)" (dragleave)="onDragLeave($event)" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+<div class="dragDropHandler" [class.nfdDragging]="draggingOver" (dragenter)="onDragEnter($event)" (dragleave)="onDragLeave($event)" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
     <ng-content></ng-content>
 </div>

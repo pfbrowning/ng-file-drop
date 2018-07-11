@@ -26,29 +26,47 @@ export class DragDropHandlerComponent {
 
     onDragEnter(event) {
         event.preventDefault();
+        console.log('dragenter', event.target);
+
+        /*
+        Explicitly ignore drag events fired from child text nodes because
+        Firefox behaves strangely.  We can ignore these because the main
+        drag events that we care about are the dragenter and dragleave on the
+        parent div, which obviously is not a text node.
+        In particular, Firefox will sometimes emit a dragenter event on a
+        child text node after the dragleave was emitted from the parent
+        element, which messes up our state management by putting
+        the component in a 'dragging' state immediately after the
+        drag finished.
+        */
+        if (event.target.nodeType === 3) {
+            return;
+        }
+        console.log('incrementing');
         this.dragCounter++;
     }
 
     onDragLeave(event) {
-        this.decrementDragCounter();
-    }
+        console.log('dragleave', event.target);
 
-    /*
-    Take extra care to not decrement dragCounter below 0 because some browsers will fire both
-    dragleave AND drop when the user drops a file.
-    */
-    private decrementDragCounter() {
-        if (this.dragCounter > 0) {
-            this.dragCounter--;
+        /*
+        Explicitly ignore drag events fired from child text nodes,
+        as noted within onDragEnter
+        */
+        if (event.target.nodeType === 3) {
+            return;
         }
+
+        console.log('decrementing');
+        this.dragCounter--;
     }
 
     // When the user drops a file
     onDrop(event) {
         // Tell the browser not to do its default thing
         event.preventDefault();
-        // Decrement the drag counter in order to turn off the drag indicator
-        this.decrementDragCounter();
+        // Reset the drag counter
+        this.dragCounter = 0;
         // Emit the dragged files via the filesDropped event
         this.filesDropped.emit(Array.from(event.dataTransfer.files));
     }
