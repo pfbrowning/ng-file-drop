@@ -1,12 +1,12 @@
 import { Component, Input, Output, EventEmitter, ViewChild, forwardRef } from '@angular/core';
-import { DragDropHandlerComponent } from './drag-drop-handler.component';
 import { RejectionReasons } from '../models/rejection-reasons.model';
 import { FileRejection } from '../models/file-rejection.model';
 import * as lodash from 'lodash';
 
 @Component({
   selector: 'nfd-file-input',
-  templateUrl: './file-input.component.html'
+  templateUrl: './file-input.component.html',
+  styleUrls: ['./file-input.component.css']
 })
 
 export class FileInputComponent {
@@ -17,8 +17,22 @@ export class FileInputComponent {
   @Output('selectionChanged') selectionChanged = new EventEmitter<File[]>();
   @Output('filesRejected') filesRejected = new EventEmitter<FileRejection[]>();
   @ViewChild('fileInput') fileInputViewChild;
-  @ViewChild('dragDropHandler') dragDropHandler: DragDropHandlerComponent;
   private _selectedFiles: File[] = new Array<File>();
+  private _dragging = false;
+
+  /*
+  In order to maintain the state of whether the user is currently dragging a file
+  over the file drop input in a cross-browser manner, we need to capture click events
+  at the top-level container and disable pointer events on all child elements
+  https://stackoverflow.com/questions/7110353/html5-dragleave-fired-when-hovering-a-child-element
+  */
+
+  /**
+   * Exposes whether the user is currently dragging a file over the component
+   */
+  public get draggingOver(): boolean {
+    return this._dragging;
+  }
 
   /**The files which are currently selected*/
   public get selectedFiles(): File[] {
@@ -30,11 +44,6 @@ export class FileInputComponent {
     return this.selectedFiles.length > 0;
   }
 
-  /**Tells whether the user is currently dragging a file over the file-input*/
-  public get draggingOver(): boolean {
-    return this.dragDropHandler.draggingOver;
-  }
-
   /**User-specified allowedExtensions as an array*/
   private get allowedExtensionsArray(): string[] {
     return this.allowedExtensions != null ? this.allowedExtensions.split(',') : null;
@@ -42,14 +51,6 @@ export class FileInputComponent {
 
   private get fileInput(): HTMLInputElement {
     return this.fileInputViewChild.nativeElement;
-  }
-
-  /**
-   * Adds the necessary files to the selectedFiles array when dragged by the user
-   * @param event the drop event provided by the browser
-   */
-  onFilesDropped(files: File[]) {
-    this.selectFiles(files);
   }
 
   /**
@@ -105,5 +106,32 @@ export class FileInputComponent {
 
   private onSelectionChanged(selectedFiles: File[]): void {
     this.selectionChanged.emit(selectedFiles);
+  }
+
+  onDragEnter(event) {
+      event.preventDefault();
+      console.log('dragenter', event.target);
+
+      this._dragging = true;
+  }
+
+  onDragLeave(event) {
+      console.log('dragleave', event.target);
+
+      this._dragging = false;
+  }
+
+  onDragOver(event) {
+      event.preventDefault();
+  }
+
+  // When the user drops a file
+  onDrop(event) {
+      // Tell the browser not to do its default thing
+      event.preventDefault();
+      // Reset the draging flag
+      this._dragging = false;
+      // Pass the dropped files to the file selection handler
+      this.selectFiles(Array.from(event.dataTransfer.files));
   }
 }

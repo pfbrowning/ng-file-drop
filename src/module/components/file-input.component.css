@@ -1,7 +1,7 @@
-.dragDropHandler {
+.nfdDragDropHandler {
     display:inline-block;
 }
 
-::ng-deep .nfdDragging * {
+::ng-deep .nfdDragDropHandler * {
     pointer-events: none;
 }

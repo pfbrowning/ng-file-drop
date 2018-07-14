@@ -12,7 +12,7 @@ describe('File Input Component', () => {
     let handlerInstance: FileInputComponent;
     let selectionChangedSpy: jasmine.Spy;
     let filesRejectedSpy: jasmine.Spy;
-    let filesDroppedSpy: jasmine.Spy;
+    let dropHandlerDiv;
     let testFile1: File;
     let testFile2: File;
     let testFileJson: File;
@@ -35,12 +35,14 @@ describe('File Input Component', () => {
         handlerFixture = TestBed.createComponent(FileInputComponent);
         handlerInstance = handlerFixture.componentInstance;
 
+        // Query to find the handler container div
+        dropHandlerDiv  = handlerFixture.debugElement.query(By.css('div.nfdDragDropHandler')).nativeElement;
+
         // Initialize the spies
         selectionChangedSpy = spyOn(handlerInstance.selectionChanged, 'emit').and.callThrough();
         filesRejectedSpy = spyOn(handlerInstance.filesRejected, 'emit').and.callThrough();
-        filesDroppedSpy = spyOn(handlerInstance.dragDropHandler.filesDropped, 'emit').and.callThrough();
 
-        // Mock up a few test files
+        // Mock up a few test files https://stackoverflow.com/questions/24488985/how-to-mock-file-in-javascript
         const testBlob1 = new Blob(['Test file content 1'], {type: 'text/plain'});
         testBlob1['name'] = 'testfile1.txt';
         testFile1 = <File> testBlob1;
@@ -219,19 +221,22 @@ describe('File Input Component', () => {
     });
 
     it('should properly select dropped files', () => {
+        // Mock up a file drop event
+        const dropEvent = new Event('drop');
+        dropEvent['dataTransfer'] = { files: [ testFile1, testFile2, testFileBig ]};
+
         // Check the state of the component before selecting files
         expect(handlerInstance.selectedFiles.length).toBe(0);
         expect(handlerInstance.filesSelected).toBe(false);
         expect(selectionChangedSpy).not.toHaveBeenCalled();
-        expect(filesDroppedSpy).not.toHaveBeenCalled();
 
-        // Simulate the dropping of files
-        handlerInstance.dragDropHandler.filesDropped.emit([testFile1, testFile2, testFileBig]);
+
+        // Simulate a file being dropped on the container div
+        dropHandlerDiv.dispatchEvent(dropEvent);
 
         // Check the state of the component after file drop
         expect(handlerInstance.selectedFiles.length).toBe(3);
         expect(handlerInstance.filesSelected).toBe(true);
-        expect(filesDroppedSpy).toHaveBeenCalledTimes(1);
         expect(selectionChangedSpy).toHaveBeenCalledTimes(1);
         expect(selectionChangedSpy).toHaveBeenCalledWith([testFile1, testFile2, testFileBig]);
     });

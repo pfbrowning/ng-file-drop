@@ -1,6 +1,10 @@
-<nfd-drag-drop-handler #dragDropHandler (filesDropped)="onFilesDropped($event)">
-    <div (click)="fileInput.click()">
-        <ng-content></ng-content>
-    </div>
+<div class="nfdDragDropHandler" 
+    (click)="fileInput.click()" 
+    (dragenter)="onDragEnter($event)" 
+    (dragleave)="onDragLeave($event)" 
+    (dragover)="onDragOver($event)" 
+    (drop)="onDrop($event)">
+    
+    <ng-content></ng-content>
     <input type="file" #fileInput style="display:none;" (change)="onChange()" multiple [accept]="allowedExtensions">
-</nfd-drag-drop-handler>
+</div>
