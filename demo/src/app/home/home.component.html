@@ -22,7 +22,7 @@
 <section class="home">
   <div class="container">
 	<nfd-file-input #fileInput allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
-		<div class="btnFileDrop" [class.draggingOver]="fileInput.draggingOver">
+		<div class="btnFileDrop" [class.dragging]="fileInput.dragging">
 			<ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
 			<ng-template #filesSelected>
 				<ul>
@@ -32,7 +32,7 @@
 				</ul>
 			</ng-template>
 			<ng-template #noFilesSelected>
-				<ng-container *ngIf="fileInput.draggingOver; then dragging else notDragging"></ng-container>
+				<ng-container *ngIf="fileInput.dragging; then dragging else notDragging"></ng-container>
 				<ng-template #dragging>Drop Files Here</ng-template>
 				<ng-template #notDragging>Click or Drag Files Here</ng-template>
 			</ng-template>
@@ -47,7 +47,7 @@
 						Dragging
 					</td>
 					<td>
-						{{fileInput.draggingOver}}
+						{{fileInput.dragging}}
 					</td>
 				</tr>
 			</table>

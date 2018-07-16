@@ -30,7 +30,7 @@ export class FileInputComponent {
   /**
    * Exposes whether the user is currently dragging a file over the component
    */
-  public get draggingOver(): boolean {
+  public get dragging(): boolean {
     return this._dragging;
   }
 
