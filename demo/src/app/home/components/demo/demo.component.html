@@ -1,5 +1,5 @@
 <h2>Select a few files</h2>
-<nfd-file-input #fileInput allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
+<nfd-file-input #fileInput (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
   <ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
   <!-- If there are selected files, then show them in a list. -->
   <ng-template #filesSelected>
