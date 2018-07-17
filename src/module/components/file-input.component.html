@@ -5,7 +5,12 @@
     (dragover)="onDragOver($event)" 
     (drop)="onDrop($event)"
     [class.nfdDragging]="dragging">
-    
-    <ng-content></ng-content>
+
+    <!-- We need a dummy div around the content block so that there's always
+    a child to apply pointer-events:none to even when the provided content is just a 
+    text node and, by extension, prevent Firefox from emitting drag events on text nodes.-->
+    <div>
+        <ng-content></ng-content>
+    </div>
     <input type="file" #fileInput style="display:none;" (change)="onChange()" multiple [accept]="allowedExtensions">
 </div>
