@@ -5,7 +5,7 @@ import { DebugElement } from '@angular/core';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HeaderComponent } from './header.component';
-import { RouterLinkStubDirective, RouterLinkActiveStubDirective } from './../../../testing/router-stubs';
+import { RouterLinkStubDirective, RouterLinkActiveStubDirective } from '../../../testing/router-stubs';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;

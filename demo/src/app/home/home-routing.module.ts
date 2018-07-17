@@ -1,6 +1,6 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
     imports: [RouterModule.forChild([

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 
 import { HomeComponent } from './home.component';
-import {  FileDropModule  } from '@browninglogic/ng-file-drop';
+import { FileDropModule } from '@browninglogic/ng-file-drop';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

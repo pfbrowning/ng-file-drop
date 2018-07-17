@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FileDropModule } from '@browninglogic/ng-file-drop';
 
 import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './components/home/home.component';
+import { DemoComponent } from './components/demo/demo.component';
+import { DiagnosticsBoxComponent } from './components/diagnostics-box/diagnostics-box.component';
 
 @NgModule({
     imports: [
@@ -11,6 +13,6 @@ import { HomeComponent } from './home.component';
         FileDropModule,
         HomeRoutingModule,
     ],
-    declarations: [HomeComponent],
+    declarations: [HomeComponent, DemoComponent, DiagnosticsBoxComponent],
 })
 export class HomeModule { }
