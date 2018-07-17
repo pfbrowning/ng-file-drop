@@ -45,7 +45,7 @@ export class FileInputComponent {
   }
 
   /**User-specified allowedExtensions as an array*/
-  private get allowedExtensionsArray(): string[] {
+  public get allowedExtensionsArray(): string[] {
     return this.allowedExtensions != null ? this.allowedExtensions.split(',') : null;
   }
 

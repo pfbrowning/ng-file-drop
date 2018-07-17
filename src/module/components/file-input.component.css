@@ -1,7 +1,3 @@
-.nfdDragDropHandler {
-    display:inline-block;
-}
-
 ::ng-deep .nfdDragDropHandler * {
     pointer-events: none;
 }

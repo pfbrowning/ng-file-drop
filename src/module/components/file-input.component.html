@@ -3,7 +3,8 @@
     (dragenter)="onDragEnter($event)" 
     (dragleave)="onDragLeave($event)" 
     (dragover)="onDragOver($event)" 
-    (drop)="onDrop($event)">
+    (drop)="onDrop($event)"
+    [class.nfdDragging]="dragging">
     
     <ng-content></ng-content>
     <input type="file" #fileInput style="display:none;" (change)="onChange()" multiple [accept]="allowedExtensions">

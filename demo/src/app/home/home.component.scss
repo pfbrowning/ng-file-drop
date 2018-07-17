@@ -8,18 +8,33 @@
     margin-top: 1.0rem;
 }
 
-.btnFileDrop {
+// Apply some simple styles to the handler div directly
+::ng-deep .nfdDragDropHandler {
+    cursor: pointer;
     background-color: #e6e6e6;
     border: 1px dashed grey;
     border-radius: 10px;
-    display: inline-block;
     padding: 10px 18px;
-    width:202px;
-    cursor: pointer;
+    text-align: center;
+    width:400px;
 }
 
-.dragging {
+// Set a light blue background when in a dragging or hovering state
+::ng-deep .nfdDragDropHandler.nfdDragging,
+::ng-deep .nfdDragDropHandler:hover,
+ {
     background-color:lightblue;
+}
+
+// Remove the margin / padduing / bullets from the file list
+::ng-deep .nfdDragDropHandler ul {
+    padding: 0;
+    margin: 0;
+}
+
+::ng-deep .nfdDragDropHandler li {
+    margin:0;
+    list-style:none;
 }
 
 
@@ -34,7 +49,11 @@
 }
 
 .diagnosticsBox table td:first-child {
-    padding-right: 8px;
+    padding-right: 20px;
+}
+
+.diagnosticsBox td {
+    vertical-align: top;
 }
 
 .diagnosticsBox {
@@ -42,7 +61,6 @@
     border-radius: 10px;
     border:2px solid lightgrey;
     padding:10px 15px;
-    margin-top:10px;
     margin-bottom:10px;
     display: inline-block;
 }
