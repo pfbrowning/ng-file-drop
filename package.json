@@ -30,8 +30,10 @@
     "check-travis": " travis-status --repo=pfbrowning/ng-file-drop --branch=master --fail-pending || echo 'Not yet passing'"
   },
   "dependencies": {
+    "@angular/common": "6.0.0",
     "@angular/core": "6.0.0",
-    "@angular/common": "6.0.0"
+    "@types/lodash": "^4.14.112",
+    "lodash": "^4.17.10"
   },
   "devDependencies": {
     "@angular/animations": "6.0.0",
@@ -42,7 +44,6 @@
     "@angular/platform-server": "6.0.0",
     "@compodoc/gulp-compodoc": "0.0.8",
     "@types/jasmine": "2.5.41",
-    "@types/lodash": "4.14.92",
     "@types/node": "8.0.44",
     "angular-cli-ghpages": "0.5.2",
     "angular2-template-loader": "0.6.2",
@@ -78,7 +79,6 @@
     "karma-remap-coverage": "0.1.5",
     "karma-sourcemap-loader": "0.3.7",
     "karma-webpack": "3.0.0",
-    "lodash": "4.17.10",
     "node-sass": "4.9.0",
     "postcss": "6.0.22",
     "postcss-strip-inline-comments": "0.1.5",
