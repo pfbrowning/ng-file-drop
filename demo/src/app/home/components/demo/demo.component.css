@@ -16,7 +16,7 @@
     background-color:lightblue;
 }
 
-/* Remove the margin / padduing / bullets from the file list */
+/* Remove the margin / padding / bullets from the file list */
 ::ng-deep .nfdDragDropHandler ul {
     padding: 0;
     margin: 0;

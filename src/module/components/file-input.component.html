@@ -8,7 +8,8 @@
 
     <!-- We need a dummy div around the content block so that there's always
     a child to apply pointer-events:none to even when the provided content is just a 
-    text node and, by extension, prevent Firefox from emitting drag events on text nodes.-->
+    text node and, by extension, prevent Firefox from emitting drag events on text nodes.
+    https://stackoverflow.com/a/18582960 -->
     <div>
         <ng-content></ng-content>
     </div>
