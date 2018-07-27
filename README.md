@@ -31,9 +31,7 @@ The motivation for this component is to abstract away the following complexities
 ```shell
 npm install --save @browninglogic/ng-file-drop
 ```
-2. Import FileDropModule:
-```
-Then include the imported module in your application module:
+2. Then include the imported module in your application module:
 ```js
 import { FileDropModule } from '@browninglogic/ng-file-drop';
 
@@ -50,8 +48,11 @@ TODO Fill this in
 
 ## Usage
 By design, the component has no display of its own and only displays the content that you place inside it.  To use it, simply place an nfd-file-input component within your template and place the non-interactive content that you want to display inside.  The provided content will be displayed, and clicking anywhere on the component will open the browser's file selection dialog.
+
+Consider this example from the [demo](https://pfbrowning.github.io/ng-file-drop):
 ```html
-<nfd-file-input #fileInput (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
+<nfd-file-input #fileInput (filesRejected)="onFilesRejected($event)" 
+  allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
   <ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
   <!-- If there are selected files, then show them in a list. -->
   <ng-template #filesSelected>
