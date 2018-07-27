@@ -81,8 +81,24 @@ By design, the component has no display of its own and only displays the content
 |filesRejected|Event||This event is emitted when allowedExtensions or maxFileSize are specified and the user selects a file which violates either constraint.  It emits an array of file rejections, each of which contains the file itself and an enum stating which constraint the file violated.|
 
 ## Styling
+The nfdDragDropHandler class can be used to style the container div.
+In addition, the nfdDragging class can be used to apply styles while the
+user is dragging files over the component, similar to the CSS hover selector.
+
+Both of the aforementioned classes must be used with the ng-deep combinator.
+The ng-deep combinator is necessary in order to specify that styles should be 
+applied to child components, such as ng-file-drop.  It's worth noting that ng-deep is
+[deprecated](https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep) and is a
+[temporary solution](https://hackernoon.com/the-new-angular-ng-deep-and-the-shadow-piercing-combinators-deep-and-drop-4b088dbe459) 
+until a better solution becomes clear.  In addition, I would suggest taking a moment to read about 
+[view encapsulation](https://blog.thoughtram.io/angular/2015/06/29/shadow-dom-strategies-in-angular2.html) 
+in Angular if you're not already familiar.
+
+Consider the following example CSS, taken directly from the 
+[demo](https://pfbrowning.github.io/ng-file-drop):
+
 ```css
-/* Apply some simple styles to the handler div directly */
+/* Apply some simple styles to the container div directly. */
 ::ng-deep .nfdDragDropHandler {
     cursor: pointer;
     background-color: #e6e6e6;
@@ -101,21 +117,19 @@ By design, the component has no display of its own and only displays the content
 }
 
 /* Remove the margin / padding / bullets from the file list */
-::ng-deep .nfdDragDropHandler ul {
+ul.fileList {
     padding: 0;
     margin: 0;
 }
 
-::ng-deep .nfdDragDropHandler li {
+ul.fileList li {
     margin:0;
     list-style:none;
 }
 ```
-TODO Explain styling
 
-TODO Explain hover in particular
 ## Pointer-Events
-Since this component is designed to be a drop-in replacement for a file input, it only supports non-interactive display-oriented content.  Pointer-events are disabled on all of the content inside the nfd-file-input component in order to provide consistent "drag" functionality across browsers.  As a side-effect, any pointer-events-based functionality placed inside the component, such as click handlers and :hover selectors, are not supported.  Hover and related CSS selectors can be hooked by using the nfdDragDropHandler CSS class, as described in the above section.
+Since this component is designed to be a drop-in replacement for a file input, it only supports non-interactive display-oriented content.  Pointer-events are disabled on all of the content inside the nfd-file-input component in order to provide consistent "drag" functionality across browsers.  As a side-effect, any pointer-events-based functionality placed inside the component, such as click handlers and :hover selectors, are not supported.  Hover and related CSS selectors can be hooked by using the nfdDragDropHandler CSS class.
 
 ## Demo
 TODO Publish demo
@@ -125,4 +139,3 @@ View it in action here: https://pfbrowning.github.io/ng-file-drop
 ## License
 
 Copyright (c) 2018 Patrick Browning. Licensed under the MIT License (MIT)
-
