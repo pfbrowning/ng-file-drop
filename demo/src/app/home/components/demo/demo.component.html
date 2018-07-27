@@ -3,7 +3,7 @@
   <ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
   <!-- If there are selected files, then show them in a list. -->
   <ng-template #filesSelected>
-    <ul>
+    <ul class="fileList">
       <li *ngFor="let file of fileInput.selectedFiles">
         {{file['name']}}
       </li>

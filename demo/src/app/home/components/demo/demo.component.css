@@ -1,4 +1,4 @@
-/* Apply some simple styles to the handler div directly */
+/* Apply some simple styles to the container div directly. */
 ::ng-deep .nfdDragDropHandler {
     cursor: pointer;
     background-color: #e6e6e6;
@@ -17,12 +17,12 @@
 }
 
 /* Remove the margin / padding / bullets from the file list */
-::ng-deep .nfdDragDropHandler ul {
+ul.fileList {
     padding: 0;
     margin: 0;
 }
 
-::ng-deep .nfdDragDropHandler li {
+ul.fileList li {
     margin:0;
     list-style:none;
 }
