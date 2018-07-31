@@ -27,11 +27,11 @@ The motivation for this component is to abstract away the following complexities
 * [Angular](https://angular.io) (*requires* Angular 6 or higher, tested with 6.0.0)
 
 ## Installation
-1. Install `@browninglogic/ng-file-drop` via:
+Install `@browninglogic/ng-file-drop` via:
 ```shell
 npm install --save @browninglogic/ng-file-drop
 ```
-2. Then include the imported module in your application module:
+Then include the imported module in your application module:
 ```js
 import { FileDropModule } from '@browninglogic/ng-file-drop';
 
@@ -136,6 +136,9 @@ Since this component is designed to be a drop-in replacement for a file input, i
 TODO Publish demo
 
 View it in action here: https://pfbrowning.github.io/ng-file-drop
+
+## Documentation
+More detailed documentation can be found <a href="http://localhost:8080/index.html">here</a>.
 
 ## License
 

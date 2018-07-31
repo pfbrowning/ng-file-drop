@@ -1,8 +1,12 @@
-import { Component, Input, Output, EventEmitter, ViewChild, forwardRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { RejectionReasons } from '../models/rejection-reasons.model';
 import { FileRejection } from '../models/file-rejection.model';
 import * as lodash from 'lodash';
 
+/**
+ * This class defines the main nfd-file-input component functionality.
+ * General usage, examples, and commentary is available
+ * [here](https://github.com/pfbrowning/ng-file-drop/blob/master/README.md).*/
 @Component({
   selector: 'nfd-file-input',
   templateUrl: './file-input.component.html',
@@ -10,14 +14,18 @@ import * as lodash from 'lodash';
 })
 
 export class FileInputComponent {
-  /**Allowed extensions can be optionally specified as a comma-separated list*/
+  /**Optional comma-separated list specifying file extensions to allow*/
   @Input() allowedExtensions: string;
-  /**maxFileSize can be optionally specified in bytes*/
+  /**Optional max file size in bytes*/
   @Input() maxFileSize: number;
+  /**Emits an array of files when the selection is changed or cleared*/
   @Output('selectionChanged') selectionChanged = new EventEmitter<File[]>();
+  /**Emits an array of [FileRejection](http://localhost:8080/classes/FileRejection.html)
+   * objects which specify the rejected file and the reason for rejection.*/
   @Output('filesRejected') filesRejected = new EventEmitter<FileRejection[]>();
-  @ViewChild('fileInput') fileInputViewChild;
+  /**Member variable which maintains the currently selected files for internal use*/
   private _selectedFiles: File[] = new Array<File>();
+  /**Member variable which maintains the dragging state for internal use*/
   private _dragging = false;
 
   /*
@@ -49,14 +57,11 @@ export class FileInputComponent {
     return this.allowedExtensions != null ? this.allowedExtensions.split(',') : null;
   }
 
-  private get fileInput(): HTMLInputElement {
-    return this.fileInputViewChild.nativeElement;
-  }
-
   /**
    * Adds to selectedFiles each valid provided file and rejects invalid files,
    * where validity is defined by whether the file conflicts with any
    * user-specified maxFileSize or allowedExtensions limitation.
+   * For internal use by the component itself.
    * @param filesToSelect File array to iterate through for new Files to add
    */
   selectFiles(filesToSelect: File[]) {
@@ -81,51 +86,56 @@ export class FileInputComponent {
       }
     })
 
-    this.onSelectionChanged(this.selectedFiles);
+    this.selectionChanged.emit(this.selectedFiles);
 
     if (rejectedFiles.length > 0) {
       this.filesRejected.emit(rejectedFiles);
     }
   }
 
-  /*
-  When the user selects files through the file input, add them
-  to selectedFiles and clear the file input
-  */
-  onChange() {
-    this.selectFiles(Array.from(this.fileInput.files));
-    this.fileInput.value = null;
+  /**Handles file selections from the file input by selecting
+   * them within the component and clearing the input so that
+   * the user can select more files if they'd like.
+   * For internal use by the component itself.*/
+  onChange(fileInput: HTMLInputElement) {
+    this.selectFiles(Array.from(fileInput.files));
+    fileInput.value = null;
   }
 
+  /**Clears the file selection and emits selectionChanged
+   * with an empty array*/
   public clearSelection(): void {
     if (this.selectedFiles.length > 0) {
       this._selectedFiles = new Array<File>();
-      this.onSelectionChanged(this.selectedFiles);
+      this.selectionChanged.emit(this.selectedFiles);
     }
   }
 
-  private onSelectionChanged(selectedFiles: File[]): void {
-    this.selectionChanged.emit(selectedFiles);
-  }
-
+  /**Handles the dragenter event by preventing the default action
+   * and setting the dragging state to true.
+   * For internal use by the component itself.*/
   onDragEnter(event) {
       event.preventDefault();
-      console.log('dragenter', event.target);
 
       this._dragging = true;
   }
 
+  /**Handles the dragleave event by setting the dragging state to false.
+   * For internal use by the component itself.*/
   onDragLeave(event) {
-      console.log('dragleave', event.target);
-
       this._dragging = false;
   }
 
+  /**Prevents the default action for the dragover event.
+   * For internal use by the component itself.*/
   onDragOver(event) {
       event.preventDefault();
   }
 
-  // When the user drops a file
+  /**Handles the drop event by cancelling the browser's
+   * default action, setting the dragging state to
+   * false, and selecting the eligible dropped files.
+   * For internal use by the component itself.*/
   onDrop(event) {
       // Tell the browser not to do its default thing
       event.preventDefault();
