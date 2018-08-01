@@ -51,12 +51,11 @@ By design, the component has no display of its own and only displays the content
 
 Consider this example from the [demo](https://pfbrowning.github.io/ng-file-drop):
 ```html
-<nfd-file-input #fileInput (filesRejected)="onFilesRejected($event)" 
-  allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
+<nfd-file-input #fileInput (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
   <ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
   <!-- If there are selected files, then show them in a list. -->
   <ng-template #filesSelected>
-    <ul>
+    <ul class="fileList">
       <li *ngFor="let file of fileInput.selectedFiles">
         {{file['name']}}
       </li>
@@ -71,6 +70,8 @@ Consider this example from the [demo](https://pfbrowning.github.io/ng-file-drop)
     <ng-template #notDragging>Click or Drag Files Here</ng-template>
   </ng-template>
 </nfd-file-input>
+<!-- Show a "Clear Selection" button when files are selected in order to demonstrate the clearSelection functionality.-->
+<input type="button" *ngIf="fileInput.filesSelected" (click)="fileInput.clearSelection()" value="Clear Selection" class="clearButton">
 ```
 |Name|Category|Type|Description|
 |:---|:---|:---|:---|
@@ -80,6 +81,7 @@ Consider this example from the [demo](https://pfbrowning.github.io/ng-file-drop)
 |maxFileSize|Optional Input Property|Number|The max file size in bytes to validate for on file selection.|
 |allowedExtensions|Optional Input Property|String|A comma-separated list of file extensions to validate on file selection.|
 |filesRejected|Event||This event is emitted when allowedExtensions or maxFileSize are specified and the user selects a file which violates either constraint.  It emits an array of file rejections, each of which contains the file itself and an enum stating which constraint the file violated.|
+|clearSelection|Method||Clears the current selection|
 
 ## Styling
 The nfdDragDropHandler class can be used to style the container div.
