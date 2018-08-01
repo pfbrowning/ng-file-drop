@@ -18,6 +18,8 @@
     <ng-template #notDragging>Click or Drag Files Here</ng-template>
   </ng-template>
 </nfd-file-input>
+<!-- Show a "Clear Selection" button when files are selected in order to demonstrate the clearSelection functionality.-->
+<input type="button" *ngIf="fileInput.filesSelected" (click)="fileInput.clearSelection()" value="Clear Selection" class="clearButton">
 
 <h2>Diagnostics Info</h2>
 <nfd-diagnostics-box>
