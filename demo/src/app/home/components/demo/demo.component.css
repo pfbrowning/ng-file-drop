@@ -26,3 +26,8 @@ ul.fileList li {
     margin:0;
     list-style:none;
 }
+
+.fileInputContainer,
+.demoContentContainer {
+    margin-bottom:10px;
+}
