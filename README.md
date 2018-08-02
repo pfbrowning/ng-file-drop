@@ -43,8 +43,6 @@ import { FileDropModule } from '@browninglogic/ng-file-drop';
 export class AppModule {
 }
 ```
-## Browser Support
-TODO Fill this in
 
 ## Usage
 By design, the component has no display of its own and only displays the content that you place inside it.  To use it, simply place an nfd-file-input component within your template and place the non-interactive content that you want to display inside.  The provided content will be displayed, and clicking anywhere on the component will open the browser's file selection dialog.
@@ -138,6 +136,16 @@ Since this component is designed to be a drop-in replacement for a file input, i
 TODO Publish demo
 
 View it in action here: https://pfbrowning.github.io/ng-file-drop
+
+## Browser Support
+The following browsers have been tested and confirmed to be working as of the specified versions:
+|Browser|Version|
+|:---|:---|
+|Firefox|61|
+|Chrome|68|
+|Opera|54|
+
+I haven't been able to test on Safari for Mac or IOS because I don't own any Macs or IOS devices.  If somebody who does is inclined to report with how it works on either, I would be grateful.
 
 ## Documentation
 More detailed documentation can be found <a href="http://localhost:8080/index.html">here</a>.
