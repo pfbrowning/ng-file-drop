@@ -97,9 +97,15 @@ export class FileInputComponent {
    * them within the component and clearing the input so that
    * the user can select more files if they'd like.
    * For internal use by the component itself.*/
-  onChange(fileInput: HTMLInputElement) {
-    this.selectFiles(Array.from(fileInput.files));
-    fileInput.value = null;
+  onChange(fileInput) {
+    const files: Array<File> = Array.from(fileInput.files);
+    /*In order to account for the IE11 bug wherein the change event
+    is fired when you programmatically clear a file input, we only
+    want to handle this event when there were selected files.*/
+    if (files.length > 0) {
+      this.selectFiles(files);
+      fileInput.value = null;
+    }
   }
 
   /**Clears the file selection and emits selectionChanged
