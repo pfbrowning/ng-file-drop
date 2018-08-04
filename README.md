@@ -134,6 +134,7 @@ View it in action here: https://pfbrowning.github.io/ng-file-drop
 
 ## Browser Support
 The following browsers have been tested and confirmed to be working as of the specified versions:
+
 |Browser|Version|
 |:---|:---|
 |Firefox|61|
@@ -146,7 +147,7 @@ The following browsers have been tested and confirmed to be working as of the sp
 
 I haven't been able to test on Safari for Mac or IOS because I don't own any Macs or IOS devices.  If somebody who does is inclined to report with how it works on either, I would be grateful.
 
-In testing touch devices, the component works as a file input in that it opens the file dialog when you touch it, but file drag & drop isn't supported for obvious reasons.
+On touch devices, the component works as a file input in that it opens the file dialog when you touch it, but "file drop" functionality isn't supported for touch devices in that it may or may not work depending on your device.
 
 ## Documentation
 More detailed documentation can be found <a href="https://pfbrowning.github.io/ng-file-drop/doc/">here</a>.
