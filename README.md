@@ -4,6 +4,9 @@
 
 # ng-file-drop - Configurable Angular file input component with cross-browser drag &amp; drop functionality
 
+[![npm version](https://badge.fury.io/js/%40browninglogic%2Fng-file-drop.svg)](https://badge.fury.io/js/%40browninglogic%2Fng-file-drop)
+[![Build Status](https://travis-ci.org/pfbrowning/ng-file-drop.svg?branch=master)](https://travis-ci.org/pfbrowning/ng-file-drop)
+[![Coverage Status](https://coveralls.io/repos/github/pfbrowning/ng-file-drop/badge.svg?branch=master)](https://coveralls.io/github/pfbrowning/ng-file-drop?branch=master)
 [![dependency Status](https://david-dm.org/pfbrowning/ng-file-drop/status.svg)](https://david-dm.org/pfbrowning/ng-file-drop)
 [![devDependency Status](https://david-dm.org/pfbrowning/ng-file-drop/dev-status.svg?branch=master)](https://david-dm.org/pfbrowning/ng-file-drop#info=devDependencies)
 
@@ -146,7 +149,7 @@ I haven't been able to test on Safari for Mac or IOS because I don't own any Mac
 In testing touch devices, the component works as a file input in that it opens the file dialog when you touch it, but file drag & drop isn't supported for obvious reasons.
 
 ## Documentation
-More detailed documentation can be found <a href="http://localhost:8080/index.html">here</a>.
+More detailed documentation can be found <a href="https://pfbrowning.github.io/ng-file-drop/doc/">here</a>.
 
 ## License
 
