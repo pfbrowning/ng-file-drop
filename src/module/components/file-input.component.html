@@ -13,5 +13,5 @@
     <div>
         <ng-content></ng-content>
     </div>
-    <input type="file" #fileInput style="display:none;" (change)="onChange($event.target)" multiple [accept]="allowedExtensions">
+    <input type="file" #fileInput style="display:none;" (change)="onChange(Array.from($event.target.files))" multiple [accept]="allowedExtensions">
 </div>

@@ -23,6 +23,12 @@ export class FileInputComponent {
   /**Emits an array of [FileRejection](https://pfbrowning.github.io/ng-file-drop/doc/classes/FileRejection.html)
    * objects which specify the rejected file and the reason for rejection.*/
   @Output() filesRejected = new EventEmitter<FileRejection[]>();
+  /**ViewChild handle used interally to clear the file input after
+   * the user selects a file from it.*/
+  @ViewChild('fileInput') fileInput;
+  /**Reference to the Array type so that we can use it in the template
+   * https://stackoverflow.com/questions/47586525/parse-array-in-angular-template*/
+  public Array = Array;
   /**Member variable which maintains the currently selected files for internal use*/
   private _selectedFiles: File[] = new Array<File>();
   /**Member variable which maintains the dragging state for internal use*/
@@ -97,14 +103,13 @@ export class FileInputComponent {
    * them within the component and clearing the input so that
    * the user can select more files if they'd like.
    * For internal use by the component itself.*/
-  onChange(fileInput) {
-    const files: Array<File> = Array.from(fileInput.files);
+  onChange(selectedFiles: Array<File>) {
     /*In order to account for the IE11 bug wherein the change event
     is fired when you programmatically clear a file input, we only
     want to handle this event when there were selected files.*/
-    if (files.length > 0) {
-      this.selectFiles(files);
-      fileInput.value = null;
+    if (selectedFiles.length > 0) {
+      this.selectFiles(selectedFiles);
+      this.fileInput.nativeElement.value = null;
     }
   }
 
