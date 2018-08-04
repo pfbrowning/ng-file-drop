@@ -1,0 +1,1541 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@browninglogic/ng-file-drop documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">@browninglogic/ng-file-drop documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <nav>
+
+    <ul class="list">
+
+        <li class="title">
+            <a href="index.html" data-type="index-link">@browninglogic/ng-file-drop documentation</a>
+        </li>
+
+        <li class="divider"></li>
+
+
+        <li class="chapter">
+            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
+            <ul class="links">
+                    <li class="link">
+                        <a 
+                            
+                             href="overview.html" 
+                             href="overview.html" 
+                            data-type="chapter-link">
+                            <span class="fa fa-fw fa-th"></span>Overview
+                        </a>
+                    </li>
+                    <li class="link">
+                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
+                    </li>
+                    <li class="link">
+                            <a href="changelog.html"
+                        data-type="chapter-link">
+                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
+                        </a>
+                    </li>
+                    <li class="link">
+                            <a href="license.html"
+                        data-type="chapter-link">
+                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="dependencies.html"
+                            data-type="chapter-link">
+                            <span class="fa fa-fw fa-list"></span>Dependencies
+                        </a>
+                    </li>
+            </ul>
+        </li>
+
+
+        <li class="chapter modules">
+            <a data-type="chapter-link" href="modules.html">
+                <div class="menu-toggler linked" data-toggle="collapse"
+                        data-target="#xs-modules-links"
+                >
+                    <span class="fa fa-fw fa-archive"></span>
+                    <span class="link-name">Modules</span>
+                    <span class="fa fa-angle-down"></span>
+                </div>
+            </a>
+            <ul class="links collapse"
+                    id="xs-modules-links"
+                >
+                    <li class="link">
+                        <a href="modules/FileDropModule.html" data-type="entity-link">FileDropModule</a>
+                            <li class="chapter inner">
+                                <div class="simple menu-toggler" data-toggle="collapse"
+                                        data-target="#xs-components-links-module-FileDropModule-ec455523fa2a87dc8500f3fbfe156750"
+                                    >
+                                    <span class="fa fa-fw fa-cogs"></span>
+                                    <span>Components</span>
+                                    <span class="fa fa-angle-down"></span>
+                                </div>
+                                <ul class="links collapse"
+                                        id="xs-components-links-module-FileDropModule-ec455523fa2a87dc8500f3fbfe156750"
+                                    >
+                                        <li class="link">
+                                            <a href="components/FileInputComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">FileInputComponent</a>
+                                        </li>
+                                </ul>
+                            </li>
+                    </li>
+            </ul>
+        </li>
+
+
+
+        <li class="chapter">
+            <div class="simple menu-toggler" data-toggle="collapse"
+                    data-target="#xs-classes-links"
+                >
+                <span class="fa fa-fw fa-file-code-o"></span>
+                <span>Classes</span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+            <ul class="links collapse"
+                    id="xs-classes-links"
+                >
+                    <li class="link">
+                        <a href="classes/FileRejection.html" data-type="entity-link">FileRejection</a>
+                    </li>
+            </ul>
+        </li>
+
+
+
+
+
+        <li class="chapter">
+            <div class="simple menu-toggler" data-toggle="collapse"
+                    data-target="#xs-miscellaneous-links"
+                >
+                <span class="fa fa-fw fa-cubes"></span>
+                <span>Miscellaneous</span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+            <ul class="links collapse"
+                    id="xs-miscellaneous-links"
+                >
+                    <li class="link">
+                      <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
+                    </li>
+            </ul>
+        </li>
+
+
+
+
+    </ul>
+
+</nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+
+    <ul class="list">
+
+        <li class="title">
+            <a href="index.html" data-type="index-link">@browninglogic/ng-file-drop documentation</a>
+        </li>
+
+        <li class="divider"></li>
+
+            <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+        <li class="chapter">
+            <a data-type="chapter-link" href="index.html"><span class="fa fa-home"></span>Getting started</a>
+            <ul class="links">
+                    <li class="link">
+                        <a 
+                            
+                             href="overview.html" 
+                             href="overview.html" 
+                            data-type="chapter-link">
+                            <span class="fa fa-fw fa-th"></span>Overview
+                        </a>
+                    </li>
+                    <li class="link">
+                      <a href="index.html" data-type="chapter-link"><span class="fa fa-file-text-o"></span>README</a>
+                    </li>
+                    <li class="link">
+                            <a href="changelog.html"
+                        data-type="chapter-link">
+                            <span class="fa fa-fw fa-file-text-o"></span>CHANGELOG
+                        </a>
+                    </li>
+                    <li class="link">
+                            <a href="license.html"
+                        data-type="chapter-link">
+                            <span class="fa fa-fw fa-file-text-o"></span>LICENSE
+                        </a>
+                    </li>
+                    <li class="link">
+                        <a href="dependencies.html"
+                            data-type="chapter-link">
+                            <span class="fa fa-fw fa-list"></span>Dependencies
+                        </a>
+                    </li>
+            </ul>
+        </li>
+
+
+        <li class="chapter modules">
+            <a data-type="chapter-link" href="modules.html">
+                <div class="menu-toggler linked" data-toggle="collapse"
+                        data-target="#modules-links"
+                >
+                    <span class="fa fa-fw fa-archive"></span>
+                    <span class="link-name">Modules</span>
+                    <span class="fa fa-angle-down"></span>
+                </div>
+            </a>
+            <ul class="links collapse"
+                    id="modules-links"
+>
+                    <li class="link">
+                        <a href="modules/FileDropModule.html" data-type="entity-link">FileDropModule</a>
+                            <li class="chapter inner">
+                                <div class="simple menu-toggler" data-toggle="collapse"
+                                        data-target="#components-links-module-FileDropModule-ec455523fa2a87dc8500f3fbfe156750"
+>
+                                    <span class="fa fa-fw fa-cogs"></span>
+                                    <span>Components</span>
+                                    <span class="fa fa-angle-down"></span>
+                                </div>
+                                <ul class="links collapse"
+                                        id="components-links-module-FileDropModule-ec455523fa2a87dc8500f3fbfe156750"
+>
+                                        <li class="link">
+                                            <a href="components/FileInputComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">FileInputComponent</a>
+                                        </li>
+                                </ul>
+                            </li>
+                    </li>
+            </ul>
+        </li>
+
+
+
+        <li class="chapter">
+            <div class="simple menu-toggler" data-toggle="collapse"
+                    data-target="#classes-links"
+>
+                <span class="fa fa-fw fa-file-code-o"></span>
+                <span>Classes</span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+            <ul class="links collapse"
+                    id="classes-links"
+>
+                    <li class="link">
+                        <a href="classes/FileRejection.html" data-type="entity-link">FileRejection</a>
+                    </li>
+            </ul>
+        </li>
+
+
+
+
+
+        <li class="chapter">
+            <div class="simple menu-toggler" data-toggle="collapse"
+                    data-target="#miscellaneous-links"
+>
+                <span class="fa fa-fw fa-cubes"></span>
+                <span>Miscellaneous</span>
+                <span class="fa fa-angle-down"></span>
+            </div>
+            <ul class="links collapse"
+                    id="miscellaneous-links"
+>
+                    <li class="link">
+                      <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
+                    </li>
+            </ul>
+        </li>
+
+
+
+
+    </ul>
+
+</nav>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>FileInputComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/module/components/file-input.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This class defines the main nfd-file-input component functionality.
+General usage, examples, and commentary is available
+<a href="https://github.com/pfbrowning/ng-file-drop/blob/master/README.md">here</a>.</p>
+
+    </p>
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>nfd-file-input</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>file-input.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./file-input.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_dragging">_dragging</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_selectedFiles">_selectedFiles</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#clearSelection">clearSelection</a>
+                            </li>
+                            <li>
+                                <a href="#onChange">onChange</a>
+                            </li>
+                            <li>
+                                <a href="#onDragEnter">onDragEnter</a>
+                            </li>
+                            <li>
+                                <a href="#onDragLeave">onDragLeave</a>
+                            </li>
+                            <li>
+                                <a href="#onDragOver">onDragOver</a>
+                            </li>
+                            <li>
+                                <a href="#onDrop">onDrop</a>
+                            </li>
+                            <li>
+                                <a href="#selectFiles">selectFiles</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allowedExtensions">allowedExtensions</a>
+                            </li>
+                            <li>
+                                <a href="#maxFileSize">maxFileSize</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#filesRejected">filesRejected</a>
+                            </li>
+                            <li>
+                                <a href="#selectionChanged">selectionChanged</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="allowedExtensions"></a>
+                        <code>allowedExtensions</code>
+                    </td>
+                    <td class="col-md-10">
+                        <div><p>Optional comma-separated list specifying file extensions to allow</p>
+</div>
+                            <p>
+                            <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/module/components/file-input.component.ts:18</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="maxFileSize"></a>
+                        <code>maxFileSize</code>
+                    </td>
+                    <td class="col-md-10">
+                        <div><p>Optional max file size in bytes</p>
+</div>
+                            <p>
+                            <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/module/components/file-input.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="filesRejected"></a>
+                        <code>filesRejected</code>
+                    </td>
+                    <td class="col-md-10">
+                        <div><p>Emits an array of <a href="http://localhost:8080/classes/FileRejection.html">FileRejection</a>
+objects which specify the rejected file and the reason for rejection.</p>
+</div>
+                        <em><code>$event</code> type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/module/components/file-input.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="selectionChanged"></a>
+                        <code>selectionChanged</code>
+                    </td>
+                    <td class="col-md-10">
+                        <div><p>Emits an array of files when the selection is changed or cleared</p>
+</div>
+                        <em><code>$event</code> type:</em>    <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/module/components/file-input.component.ts:22</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clearSelection"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            clearSelection
+                            </b>
+                            <a href="#clearSelection"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span>
+                        <code>clearSelection()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/module/components/file-input.component.ts:113</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Clears the file selection and emits selectionChanged
+with an empty array</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onChange"></a>
+                        <span class="name">
+                            <b>
+                            onChange
+                            </b>
+                            <a href="#onChange"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onChange(fileInput: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/module/components/file-input.component.ts:100</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Handles file selections from the file input by selecting
+them within the component and clearing the input so that
+the user can select more files if they&#39;d like.
+For internal use by the component itself.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fileInput</td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDragEnter"></a>
+                        <span class="name">
+                            <b>
+                            onDragEnter
+                            </b>
+                            <a href="#onDragEnter"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onDragEnter(event: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/module/components/file-input.component.ts:123</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Handles the dragenter event by preventing the default action
+and setting the dragging state to true.
+For internal use by the component itself.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDragLeave"></a>
+                        <span class="name">
+                            <b>
+                            onDragLeave
+                            </b>
+                            <a href="#onDragLeave"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onDragLeave(event: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">src/module/components/file-input.component.ts:131</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Handles the dragleave event by setting the dragging state to false.
+For internal use by the component itself.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDragOver"></a>
+                        <span class="name">
+                            <b>
+                            onDragOver
+                            </b>
+                            <a href="#onDragOver"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onDragOver(event: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/module/components/file-input.component.ts:137</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Prevents the default action for the dragover event.
+For internal use by the component itself.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDrop"></a>
+                        <span class="name">
+                            <b>
+                            onDrop
+                            </b>
+                            <a href="#onDrop"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onDrop(event: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/module/components/file-input.component.ts:145</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Handles the drop event by cancelling the browser&#39;s
+default action, setting the dragging state to
+false, and selecting the eligible dropped files.
+For internal use by the component itself.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectFiles"></a>
+                        <span class="name">
+                            <b>
+                            selectFiles
+                            </b>
+                            <a href="#selectFiles"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>selectFiles(filesToSelect: File[])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/module/components/file-input.component.ts:67</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Adds to selectedFiles each valid provided file and rejects invalid files,
+where validity is defined by whether the file conflicts with any
+user-specified maxFileSize or allowedExtensions limitation.
+For internal use by the component itself.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>filesToSelect</td>
+                                                        <td>
+                                                                    <code>File[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>File array to iterate through for new Files to add</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_dragging"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _dragging
+                            </b>
+                            <a href="#_dragging"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon fa fa-reset"></span><code>_dragging:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/module/components/file-input.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Member variable which maintains the dragging state for internal use</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_selectedFiles"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _selectedFiles
+                            </b>
+                            <a href="#_selectedFiles"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon fa fa-reset"></span><code>_selectedFiles:     <code>File[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>File[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Array&lt;File&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/module/components/file-input.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Member variable which maintains the currently selected files for internal use</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dragging"></a>
+                        <span class="name"><b>dragging</b><a href="#dragging"><span class="fa fa-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>dragging()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/module/components/file-input.component.ts:41</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Exposes whether the user is currently dragging a file over the component</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedFiles"></a>
+                        <span class="name"><b>selectedFiles</b><a href="#selectedFiles"><span class="fa fa-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>selectedFiles()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/module/components/file-input.component.ts:46</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>The files which are currently selected</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>File[]</code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filesSelected"></a>
+                        <span class="name"><b>filesSelected</b><a href="#filesSelected"><span class="fa fa-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>filesSelected()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/module/components/file-input.component.ts:51</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Tells whether or not any files are currently selected</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowedExtensionsArray"></a>
+                        <span class="name"><b>allowedExtensionsArray</b><a href="#allowedExtensionsArray"><span class="fa fa-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>allowedExtensionsArray()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/module/components/file-input.component.ts:56</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>User-specified allowedExtensions as an array</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>string[]</code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Output, EventEmitter, ViewChild } from &#x27;@angular/core&#x27;;
+import { RejectionReasons } from &#x27;../models/rejection-reasons.model&#x27;;
+import { FileRejection } from &#x27;../models/file-rejection.model&#x27;;
+import * as lodash from &#x27;lodash&#x27;;
+
+/**
+ * This class defines the main nfd-file-input component functionality.
+ * General usage, examples, and commentary is available
+ * [here](https://github.com/pfbrowning/ng-file-drop/blob/master/README.md).*/
+@Component({
+  selector: &#x27;nfd-file-input&#x27;,
+  templateUrl: &#x27;./file-input.component.html&#x27;,
+  styleUrls: [&#x27;./file-input.component.css&#x27;]
+})
+
+export class FileInputComponent {
+  /**Optional comma-separated list specifying file extensions to allow*/
+  @Input() allowedExtensions: string;
+  /**Optional max file size in bytes*/
+  @Input() maxFileSize: number;
+  /**Emits an array of files when the selection is changed or cleared*/
+  @Output() selectionChanged &#x3D; new EventEmitter&lt;File[]&gt;();
+  /**Emits an array of [FileRejection](http://localhost:8080/classes/FileRejection.html)
+   * objects which specify the rejected file and the reason for rejection.*/
+  @Output() filesRejected &#x3D; new EventEmitter&lt;FileRejection[]&gt;();
+  /**Member variable which maintains the currently selected files for internal use*/
+  private _selectedFiles: File[] &#x3D; new Array&lt;File&gt;();
+  /**Member variable which maintains the dragging state for internal use*/
+  private _dragging &#x3D; false;
+
+  /*
+  In order to maintain the state of whether the user is currently dragging a file
+  over the file drop input in a cross-browser manner, we need to capture click events
+  at the top-level container and disable pointer events on all child elements
+  https://stackoverflow.com/questions/7110353/html5-dragleave-fired-when-hovering-a-child-element
+  */
+
+  /**
+   * Exposes whether the user is currently dragging a file over the component
+   */
+  public get dragging(): boolean {
+    return this._dragging;
+  }
+
+  /**The files which are currently selected*/
+  public get selectedFiles(): File[] {
+    return this._selectedFiles;
+  }
+
+  /**Tells whether or not any files are currently selected*/
+  public get filesSelected(): boolean {
+    return this.selectedFiles.length &gt; 0;
+  }
+
+  /**User-specified allowedExtensions as an array*/
+  public get allowedExtensionsArray(): string[] {
+    return this.allowedExtensions !&#x3D; null ? this.allowedExtensions.split(&#x27;,&#x27;) : null;
+  }
+
+  /**
+   * Adds to selectedFiles each valid provided file and rejects invalid files,
+   * where validity is defined by whether the file conflicts with any
+   * user-specified maxFileSize or allowedExtensions limitation.
+   * For internal use by the component itself.
+   * @param filesToSelect File array to iterate through for new Files to add
+   */
+  selectFiles(filesToSelect: File[]) {
+    const rejectedFiles &#x3D; new Array&lt;FileRejection&gt;();
+
+    // Clear out any previous selections
+    if (this.selectedFiles.length &gt; 0) {
+      this._selectedFiles &#x3D; new Array&lt;File&gt;();
+    }
+
+    filesToSelect.forEach(file &#x3D;&gt; {
+      // If a maxFileSize is specified and the file is too large, then reject it.
+      if (this.maxFileSize !&#x3D; null &amp;&amp; file.size &gt; this.maxFileSize) {
+        rejectedFiles.push(new FileRejection(file, RejectionReasons.FileSize));
+      } else if (this.allowedExtensionsArray !&#x3D; null &amp;&amp;
+        // If allowed extensions are specified and the file doesn&#x27;t match an allowed extension, then reject it.
+        !lodash.some(this.allowedExtensionsArray, extension &#x3D;&gt; file.name.endsWith(&#x27;.&#x27; + extension))) {
+        rejectedFiles.push(new FileRejection(file, RejectionReasons.FileType));
+      } else {
+        // If the file passes the validation checks, then add it to the selection array.
+        this.selectedFiles.push(file);
+      }
+    })
+
+    this.selectionChanged.emit(this.selectedFiles);
+
+    if (rejectedFiles.length &gt; 0) {
+      this.filesRejected.emit(rejectedFiles);
+    }
+  }
+
+  /**Handles file selections from the file input by selecting
+   * them within the component and clearing the input so that
+   * the user can select more files if they&#x27;d like.
+   * For internal use by the component itself.*/
+  onChange(fileInput) {
+    const files: Array&lt;File&gt; &#x3D; Array.from(fileInput.files);
+    /*In order to account for the IE11 bug wherein the change event
+    is fired when you programmatically clear a file input, we only
+    want to handle this event when there were selected files.*/
+    if (files.length &gt; 0) {
+      this.selectFiles(files);
+      fileInput.value &#x3D; null;
+    }
+  }
+
+  /**Clears the file selection and emits selectionChanged
+   * with an empty array*/
+  public clearSelection(): void {
+    if (this.selectedFiles.length &gt; 0) {
+      this._selectedFiles &#x3D; new Array&lt;File&gt;();
+      this.selectionChanged.emit(this.selectedFiles);
+    }
+  }
+
+  /**Handles the dragenter event by preventing the default action
+   * and setting the dragging state to true.
+   * For internal use by the component itself.*/
+  onDragEnter(event) {
+      event.preventDefault();
+
+      this._dragging &#x3D; true;
+  }
+
+  /**Handles the dragleave event by setting the dragging state to false.
+   * For internal use by the component itself.*/
+  onDragLeave(event) {
+      this._dragging &#x3D; false;
+  }
+
+  /**Prevents the default action for the dragover event.
+   * For internal use by the component itself.*/
+  onDragOver(event) {
+      event.preventDefault();
+  }
+
+  /**Handles the drop event by cancelling the browser&#x27;s
+   * default action, setting the dragging state to
+   * false, and selecting the eligible dropped files.
+   * For internal use by the component itself.*/
+  onDrop(event) {
+      // Tell the browser not to do its default thing
+      event.preventDefault();
+      // Reset the draging flag
+      this._dragging &#x3D; false;
+      // Pass the dropped files to the file selection handler
+      this.selectFiles(Array.from(event.dataTransfer.files));
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;nfdDragDropHandler&quot; 
+    (click)&#x3D;&quot;fileInput.click()&quot; 
+    (dragenter)&#x3D;&quot;onDragEnter($event)&quot; 
+    (dragleave)&#x3D;&quot;onDragLeave($event)&quot; 
+    (dragover)&#x3D;&quot;onDragOver($event)&quot; 
+    (drop)&#x3D;&quot;onDrop($event)&quot;
+    [class.nfdDragging]&#x3D;&quot;dragging&quot;&gt;
+
+    &lt;!-- We need a dummy div around the content block so that there&#x27;s always
+    a child to apply pointer-events:none to even when the provided content is just a 
+    text node and, by extension, prevent Firefox from emitting drag events on text nodes.
+    https://stackoverflow.com/a/18582960 --&gt;
+    &lt;div&gt;
+        &lt;ng-content&gt;&lt;/ng-content&gt;
+    &lt;/div&gt;
+    &lt;input type&#x3D;&quot;file&quot; #fileInput style&#x3D;&quot;display:none;&quot; (change)&#x3D;&quot;onChange($event.target)&quot; multiple [accept]&#x3D;&quot;allowedExtensions&quot;&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="nfdDragDropHandler"     (click)="fileInput.click()"     (dragenter)="onDragEnter($event)"     (dragleave)="onDragLeave($event)"     (dragover)="onDragOver($event)"     (drop)="onDrop($event)"    [class.nfdDragging]="dragging">    <!-- We need a dummy div around the content block so that there\'s always    a child to apply pointer-events:none to even when the provided content is just a     text node and, by extension, prevent Firefox from emitting drag events on text nodes.    https://stackoverflow.com/a/18582960 -->    <div>        <ng-content></ng-content>    </div>    <input type="file" #fileInput style="display:none;" (change)="onChange($event.target)" multiple [accept]="allowedExtensions"></div></div>'
+    var COMPONENTS = [{'name': 'FileInputComponent', 'selector': 'nfd-file-input'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FileInputComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+        <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FileInputComponent.html';
+        </script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/search/search_index.js"></script>
+
+
+    </body>
+</html>
