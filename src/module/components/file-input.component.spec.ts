@@ -86,6 +86,69 @@ describe('File Input Component', () => {
         expect(handlerInstance.selectedFiles[1]).toBe(testFile2);
     });
 
+    it('should properly handle selection from file input via onChange', () => {
+        // Check the state of the component before selecting files
+        expect(handlerInstance.selectedFiles.length).toBe(0);
+        expect(handlerInstance.filesSelected).toBe(false);
+        expect(handlerInstance.fileInput.nativeElement.value).toBe('');
+        expect(selectionChangedSpy).not.toHaveBeenCalled();
+
+        /* Simulate a user file selection through the file input
+        as closely as possible.  The fact that you can't 
+        programmatically set the selection of a file input
+        prevents us from testing this scenario as accurately as
+        I'd like to and severely limits the usefulness of this test,
+        but we're doing the best that we can with what we've got.*/
+        handlerInstance.onChange([testFile1, testFile2]);
+
+        /* Check the state of the component after file selection.
+        It's expected that the two files should be selected in the
+        component and the native file input element should have been properly
+        cleared out.*/
+        expect(handlerInstance.selectedFiles.length).toBe(2);
+        expect(handlerInstance.filesSelected).toBe(true);
+        expect(selectionChangedSpy).toHaveBeenCalledTimes(1);
+        expect(filesRejectedSpy).not.toHaveBeenCalled();
+        expect(handlerInstance.fileInput.nativeElement.value).toBe('');
+
+        expect(selectionChangedSpy).toHaveBeenCalledWith([testFile1, testFile2]);
+
+        expect(handlerInstance.selectedFiles[0]).toBe(testFile1);
+        expect(handlerInstance.selectedFiles[1]).toBe(testFile2);
+    });
+
+    it('should properly handle the IE11 quirk involving the file input firing change twice', () => {
+        // Check the state of the component before selecting files
+        expect(handlerInstance.selectedFiles.length).toBe(0);
+        expect(handlerInstance.filesSelected).toBe(false);
+        expect(handlerInstance.fileInput.nativeElement.value).toBe('');
+        expect(selectionChangedSpy).not.toHaveBeenCalled();
+
+        /* Simulate the user selecting two files.  As noted in the
+        previous test, this is the closest that we can get to
+        emulating the user interaction */
+        handlerInstance.onChange([testFile1, testFile2]);
+
+        /* Simulate IE11 firing the change event again after the previous
+        onChange handler cleared the value of the file input.*/
+        handlerInstance.onChange([]);
+
+        /* Check the state of the component after file selection.
+        It's expected that the two files should be selected in the
+        component and the native file input element should have been properly
+        cleared out.*/
+        expect(handlerInstance.selectedFiles.length).toBe(2);
+        expect(handlerInstance.filesSelected).toBe(true);
+        expect(selectionChangedSpy).toHaveBeenCalledTimes(1);
+        expect(filesRejectedSpy).not.toHaveBeenCalled();
+        expect(handlerInstance.fileInput.nativeElement.value).toBe('');
+
+        expect(selectionChangedSpy).toHaveBeenCalledWith([testFile1, testFile2]);
+
+        expect(handlerInstance.selectedFiles[0]).toBe(testFile1);
+        expect(handlerInstance.selectedFiles[1]).toBe(testFile2);
+    });
+
     it('should reject any files larger than the specified max size', () => {
         // Set a maxFileSize such that all are smaller except for testFileBig
         handlerInstance.maxFileSize = 25;
