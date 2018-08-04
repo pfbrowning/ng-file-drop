@@ -52,7 +52,6 @@ const stripInlineComments = require('postcss-strip-inline-comments');
 const gulpGit = require('gulp-git');
 const gulpBump = require('gulp-bump');
 const gulpConventionalChangelog = require('gulp-conventional-changelog');
-const conventionalGithubReleaser = require('conventional-github-releaser');
 
 /** To load gulp tasks from multiple files */
 const gulpHub = require('gulp-hub');
@@ -66,11 +65,6 @@ const argv = yargs
     alias: 'v',
     describe: 'Enter Version to bump to',
     choices: ['patch', 'minor', 'major'],
-    type: "string"
-  })
-  .option('ghToken', {
-    alias: 'gh',
-    describe: 'Enter Github Token for releasing',
     type: "string"
   })
   .version(false) // disable default --version from yargs( since v9.0.0)
@@ -129,16 +123,15 @@ const readyToRelease = () => {
   let isTravisPassing = /build #\d+ passed/.test(execSync('npm run check-travis').toString().trim());
   let onMasterBranch = execSync('git symbolic-ref --short -q HEAD').toString().trim() === 'master';
   let canBump = !!argv.version;
-  let canGhRelease = argv.ghToken || process.env.CONVENTIONAL_GITHUB_RELEASER_TOKEN;
   let canNpmPublish = !!execSync('npm whoami').toString().trim() && execSync('npm config get registry').toString().trim() === 'https://registry.npmjs.org/';
 
   fancyLog(`[travis-ci]      Travis build on 'master' branch is passing............................................${isOK(isTravisPassing)}`);
   fancyLog(`[git-branch]     User is currently on 'master' branch..................................................${isOK(onMasterBranch)}`);
   fancyLog(`[npm-publish]    User is currently logged in to NPM Registry...........................................${isOK(canNpmPublish)}`);
   fancyLog(`[bump-version]   Option '--version' provided, with value : 'major', 'minor' or 'patch'.................${isOK(canBump)}`);
-  fancyLog(`[github-release] Option '--ghToken' provided or 'CONVENTIONAL_GITHUB_RELEASER_TOKEN' variable set......${isOK(canGhRelease)}`);
+  fancyLog(`[github-release] Option '--ghToken' provided or 'CONVENTIONAL_GITHUB_RELEASER_TOKEN' variable set......${isOK()}`);
 
-  return isTravisPassing && onMasterBranch && canBump && canGhRelease && canNpmPublish;
+  return isTravisPassing && onMasterBranch && canBump && canNpmPublish;
 };
 
 const execCmd = (name, args, opts, ...subFolders) => {
@@ -386,6 +379,7 @@ gulp.task('rollup-bundle', (cb) => {
       // This is required for UMD bundle users.
       // See https://github.com/tinesoft/generator-ngx-library/TROUBLESHOUTING.md if trouble
       'lodash': 'lodash'
+      
 
     };
     const rollupBaseConfig = {
@@ -586,21 +580,6 @@ gulp.task('changelog', (cb) => {
     ], cb);
 });
 
-gulp.task('github-release', (cb) => {
-  if (!argv.ghToken && !process.env.CONVENTIONAL_GITHUB_RELEASER_TOKEN) {
-    fancyLog(acolors.red(`You must specify a Github Token via '--ghToken' or set environment variable 'CONVENTIONAL_GITHUB_RELEASER_TOKEN' to allow releasing on Github`));
-    throw new Error(`Missing '--ghToken' argument and environment variable 'CONVENTIONAL_GITHUB_RELEASER_TOKEN' not set`);
-  }
-
-  conventionalGithubReleaser(
-    {
-      type: 'oauth',
-      token: argv.ghToken || process.env.CONVENTIONAL_GITHUB_RELEASER_TOKEN
-    },
-    { preset: 'angular' },
-    cb);
-});
-
 gulp.task('bump-version', (cb) => {
   if (!argv.version) {
     fancyLog(acolors.red(`You must specify which version to bump to (Possible values: 'major', 'minor', and 'patch')`));
@@ -665,7 +644,6 @@ gulp.task('release', (cb) => {
       'commit-changes',
       'push-changes',
       'create-new-tag',
-      'github-release',
       'npm-publish',
       'deploy:demo',
       (error) => {
