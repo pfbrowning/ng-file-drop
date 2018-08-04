@@ -19,10 +19,10 @@ export class FileInputComponent {
   /**Optional max file size in bytes*/
   @Input() maxFileSize: number;
   /**Emits an array of files when the selection is changed or cleared*/
-  @Output('selectionChanged') selectionChanged = new EventEmitter<File[]>();
+  @Output() selectionChanged = new EventEmitter<File[]>();
   /**Emits an array of [FileRejection](http://localhost:8080/classes/FileRejection.html)
    * objects which specify the rejected file and the reason for rejection.*/
-  @Output('filesRejected') filesRejected = new EventEmitter<FileRejection[]>();
+  @Output() filesRejected = new EventEmitter<FileRejection[]>();
   /**Member variable which maintains the currently selected files for internal use*/
   private _selectedFiles: File[] = new Array<File>();
   /**Member variable which maintains the dragging state for internal use*/
