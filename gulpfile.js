@@ -378,7 +378,6 @@ gulp.task('rollup-bundle', (cb) => {
       // Add any other dependency or peer dependency of your library here
       // This is required for UMD bundle users.
       // See https://github.com/tinesoft/generator-ngx-library/TROUBLESHOUTING.md if trouble
-      'lodash': 'lodash'
       
 
     };
@@ -538,7 +537,7 @@ gulp.task('build:demo-ssr', () => {
 });
 
 gulp.task('push:demo', () => {
-  return execCmd('ngh',`--dir ${config.outputDemoDir} --message="chore(demo): :rocket: deploy new version"`);
+  return execCmd('ngh',`--dir ${config.outputDemoDir} --email=pfbrowning943@yahoo.com --no-silent --message="chore(demo): :rocket: deploy new version"`);
 });
 
 gulp.task('deploy:demo', (cb) => {
