@@ -393,6 +393,13 @@ General usage, examples, and commentary is available
                                     <span class="modifier">Private</span>
                                 <a href="#_selectedFiles">_selectedFiles</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#Array">Array</a>
+                            </li>
+                            <li>
+                                <a href="#fileInput">fileInput</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -600,7 +607,7 @@ objects which specify the rejected file and the reason for rejection.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/module/components/file-input.component.ts:113</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/module/components/file-input.component.ts:118</a></div>
                             </td>
                         </tr>
 
@@ -634,14 +641,14 @@ with an empty array</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>onChange(fileInput: )</code>
+<code>onChange(selectedFiles: Array<File>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/module/components/file-input.component.ts:100</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/module/components/file-input.component.ts:106</a></div>
                             </td>
                         </tr>
 
@@ -660,12 +667,16 @@ For internal use by the component itself.</p>
                                         <thead>
                                             <tr>
                                                 <td>Name</td>
+                                                    <td>Type</td>
                                                 <td>Optional</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>fileInput</td>
+                                                        <td>selectedFiles</td>
+                                                        <td>
+                                                                    <code>Array&lt;File&gt;</code>
+                                                        </td>
                                                     
                                                     <td>
                                                             no
@@ -711,7 +722,7 @@ For internal use by the component itself.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/module/components/file-input.component.ts:123</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">src/module/components/file-input.component.ts:128</a></div>
                             </td>
                         </tr>
 
@@ -780,7 +791,7 @@ For internal use by the component itself.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">src/module/components/file-input.component.ts:131</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/module/components/file-input.component.ts:136</a></div>
                             </td>
                         </tr>
 
@@ -848,7 +859,7 @@ For internal use by the component itself.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/module/components/file-input.component.ts:137</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">src/module/components/file-input.component.ts:142</a></div>
                             </td>
                         </tr>
 
@@ -916,7 +927,7 @@ For internal use by the component itself.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/module/components/file-input.component.ts:145</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">src/module/components/file-input.component.ts:150</a></div>
                             </td>
                         </tr>
 
@@ -986,7 +997,7 @@ For internal use by the component itself.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/module/components/file-input.component.ts:67</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/module/components/file-input.component.ts:73</a></div>
                             </td>
                         </tr>
 
@@ -1077,7 +1088,7 @@ For internal use by the component itself.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/module/components/file-input.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/module/components/file-input.component.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -1123,13 +1134,94 @@ For internal use by the component itself.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/module/components/file-input.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/module/components/file-input.component.ts:33</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Member variable which maintains the currently selected files for internal use</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Array"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            Array
+                            </b>
+                            <a href="#Array"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon fa fa-reset"></span><code>Array:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Array</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/module/components/file-input.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Reference to the Array type so that we can use it in the template
+<a href="https://stackoverflow.com/questions/47586525/parse-array-in-angular-template">https://stackoverflow.com/questions/47586525/parse-array-in-angular-template</a></p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fileInput"></a>
+                        <span class="name">
+                            <b>
+                            fileInput
+                            </b>
+                            <a href="#fileInput"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>fileInput:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ViewChild</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/module/components/file-input.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>ViewChild handle used interally to clear the file input after
+the user selects a file from it.</p>
 </div>
                     </td>
                 </tr>
@@ -1158,7 +1250,7 @@ For internal use by the component itself.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/module/components/file-input.component.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/module/components/file-input.component.ts:47</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1191,7 +1283,7 @@ For internal use by the component itself.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/module/components/file-input.component.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/module/components/file-input.component.ts:52</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1224,7 +1316,7 @@ For internal use by the component itself.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/module/components/file-input.component.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/module/components/file-input.component.ts:57</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1257,7 +1349,7 @@ For internal use by the component itself.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/module/components/file-input.component.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/module/components/file-input.component.ts:62</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1304,6 +1396,12 @@ export class FileInputComponent {
   /**Emits an array of [FileRejection](https://pfbrowning.github.io/ng-file-drop/doc/classes/FileRejection.html)
    * objects which specify the rejected file and the reason for rejection.*/
   @Output() filesRejected &#x3D; new EventEmitter&lt;FileRejection[]&gt;();
+  /**ViewChild handle used interally to clear the file input after
+   * the user selects a file from it.*/
+  @ViewChild(&#x27;fileInput&#x27;) fileInput;
+  /**Reference to the Array type so that we can use it in the template
+   * https://stackoverflow.com/questions/47586525/parse-array-in-angular-template*/
+  public Array &#x3D; Array;
   /**Member variable which maintains the currently selected files for internal use*/
   private _selectedFiles: File[] &#x3D; new Array&lt;File&gt;();
   /**Member variable which maintains the dragging state for internal use*/
@@ -1378,14 +1476,13 @@ export class FileInputComponent {
    * them within the component and clearing the input so that
    * the user can select more files if they&#x27;d like.
    * For internal use by the component itself.*/
-  onChange(fileInput) {
-    const files: Array&lt;File&gt; &#x3D; Array.from(fileInput.files);
+  onChange(selectedFiles: Array&lt;File&gt;) {
     /*In order to account for the IE11 bug wherein the change event
     is fired when you programmatically clear a file input, we only
     want to handle this event when there were selected files.*/
-    if (files.length &gt; 0) {
-      this.selectFiles(files);
-      fileInput.value &#x3D; null;
+    if (selectedFiles.length &gt; 0) {
+      this.selectFiles(selectedFiles);
+      this.fileInput.nativeElement.value &#x3D; null;
     }
   }
 
@@ -1451,7 +1548,7 @@ export class FileInputComponent {
     &lt;div&gt;
         &lt;ng-content&gt;&lt;/ng-content&gt;
     &lt;/div&gt;
-    &lt;input type&#x3D;&quot;file&quot; #fileInput style&#x3D;&quot;display:none;&quot; (change)&#x3D;&quot;onChange($event.target)&quot; multiple [accept]&#x3D;&quot;allowedExtensions&quot;&gt;
+    &lt;input type&#x3D;&quot;file&quot; #fileInput style&#x3D;&quot;display:none;&quot; (change)&#x3D;&quot;onChange(Array.from($event.target.files))&quot; multiple [accept]&#x3D;&quot;allowedExtensions&quot;&gt;
 &lt;/div&gt;</code></pre>
     </div>
 
@@ -1480,7 +1577,7 @@ export class FileInputComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="nfdDragDropHandler"     (click)="fileInput.click()"     (dragenter)="onDragEnter($event)"     (dragleave)="onDragLeave($event)"     (dragover)="onDragOver($event)"     (drop)="onDrop($event)"    [class.nfdDragging]="dragging">    <!-- We need a dummy div around the content block so that there\'s always    a child to apply pointer-events:none to even when the provided content is just a     text node and, by extension, prevent Firefox from emitting drag events on text nodes.    https://stackoverflow.com/a/18582960 -->    <div>        <ng-content></ng-content>    </div>    <input type="file" #fileInput style="display:none;" (change)="onChange($event.target)" multiple [accept]="allowedExtensions"></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="nfdDragDropHandler"     (click)="fileInput.click()"     (dragenter)="onDragEnter($event)"     (dragleave)="onDragLeave($event)"     (dragover)="onDragOver($event)"     (drop)="onDrop($event)"    [class.nfdDragging]="dragging">    <!-- We need a dummy div around the content block so that there\'s always    a child to apply pointer-events:none to even when the provided content is just a     text node and, by extension, prevent Firefox from emitting drag events on text nodes.    https://stackoverflow.com/a/18582960 -->    <div>        <ng-content></ng-content>    </div>    <input type="file" #fileInput style="display:none;" (change)="onChange(Array.from($event.target.files))" multiple [accept]="allowedExtensions"></div></div>'
     var COMPONENTS = [{'name': 'FileInputComponent', 'selector': 'nfd-file-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FileInputComponent'};
