@@ -4,14 +4,8 @@
 
 # ng-file-drop - Configurable Angular file input component with cross-browser drag &amp; drop functionality
 
-[![npm version](https://badge.fury.io/js/ng-file-drop.svg)](https://badge.fury.io/js/ng-file-drop),
-[![Build Status](https://travis-ci.org/pfbrowning/ng-file-drop.svg?branch=master)](https://travis-ci.org/pfbrowning/ng-file-drop)
-[![Coverage Status](https://coveralls.io/repos/github/pfbrowning/ng-file-drop/badge.svg?branch=master)](https://coveralls.io/github/pfbrowning/ng-file-drop?branch=master)
 [![dependency Status](https://david-dm.org/pfbrowning/ng-file-drop/status.svg)](https://david-dm.org/pfbrowning/ng-file-drop)
 [![devDependency Status](https://david-dm.org/pfbrowning/ng-file-drop/dev-status.svg?branch=master)](https://david-dm.org/pfbrowning/ng-file-drop#info=devDependencies)
-[![Greenkeeper Badge](https://badges.greenkeeper.io/pfbrowning/ng-file-drop.svg)](https://greenkeeper.io/)
-
-TODO Correct these
 
 ## Introduction
 ng-file-drop is an Angular component intended as a drop-in replacement for `<input type="file">` with custom display content, a bindable `dragging` property, cross-browser file drop support, and file size & type checking.
@@ -133,8 +127,6 @@ ul.fileList li {
 Since this component is designed to be a drop-in replacement for a file input, it only supports non-interactive display-oriented content.  Pointer-events are disabled on all of the content inside the nfd-file-input component in order to provide consistent "drag" functionality across browsers.  As a side-effect, any pointer-events-based functionality placed inside the component, such as click handlers and :hover selectors, are not supported.  Hover and related CSS selectors can be hooked by using the nfdDragDropHandler CSS class.
 
 ## Demo
-TODO Publish demo
-
 View it in action here: https://pfbrowning.github.io/ng-file-drop
 
 ## Browser Support
@@ -144,8 +136,14 @@ The following browsers have been tested and confirmed to be working as of the sp
 |Firefox|61|
 |Chrome|68|
 |Opera|54|
+|Internet Explorer|11|
+|Edge|42|
+|Firefox (Android)|61|
+|Chrome (Android)|67|
 
 I haven't been able to test on Safari for Mac or IOS because I don't own any Macs or IOS devices.  If somebody who does is inclined to report with how it works on either, I would be grateful.
+
+In testing touch devices, the component works as a file input in that it opens the file dialog when you touch it, but file drag & drop isn't supported for obvious reasons.
 
 ## Documentation
 More detailed documentation can be found <a href="http://localhost:8080/index.html">here</a>.
