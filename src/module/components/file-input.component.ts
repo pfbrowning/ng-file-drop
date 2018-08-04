@@ -20,7 +20,7 @@ export class FileInputComponent {
   @Input() maxFileSize: number;
   /**Emits an array of files when the selection is changed or cleared*/
   @Output() selectionChanged = new EventEmitter<File[]>();
-  /**Emits an array of [FileRejection](http://localhost:8080/classes/FileRejection.html)
+  /**Emits an array of [FileRejection](https://pfbrowning.github.io/ng-file-drop/doc/classes/FileRejection.html)
    * objects which specify the rejected file and the reason for rejection.*/
   @Output() filesRejected = new EventEmitter<FileRejection[]>();
   /**Member variable which maintains the currently selected files for internal use*/
