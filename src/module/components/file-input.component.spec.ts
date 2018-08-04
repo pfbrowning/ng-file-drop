@@ -258,13 +258,13 @@ describe('File Input Component', () => {
         // Simulate the user starting to drag a file
         dropHandlerDiv.dispatchEvent(new Event('dragenter'));
 
-        /* The dragover event happens many times during a file drag, 
+        /* The dragover event happens many times during a file drag,
         so we'll roughly simulate that here*/
-        for(let i = 0; i < 10; i++) {
+        for (let i = 0; i < 10; i++) {
             dropHandlerDiv.dispatchEvent(new Event('dragover'));
         }
 
-        //The component should be in a dragging state after dragenter
+        // The component should be in a dragging state after dragenter
         expect(handlerInstance.dragging).toBe(true);
 
         // Simulate the user dragging the file out of the handler div
