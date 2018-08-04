@@ -1,7 +1,7 @@
 {
   "name": "@browninglogic/ng-file-drop",
   "description": "Configurable Angular file input component with cross-browser drag &amp; drop functionality",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/pfbrowning/ng-file-drop",
   "author": {
     "name": "Patrick Browning",
