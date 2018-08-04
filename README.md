@@ -85,7 +85,7 @@ The ng-deep combinator is necessary in order to specify that styles should be
 applied to child components, such as ng-file-drop.  It's worth noting that ng-deep is
 [deprecated](https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep) and is a
 [temporary solution](https://hackernoon.com/the-new-angular-ng-deep-and-the-shadow-piercing-combinators-deep-and-drop-4b088dbe459) 
-until a better solution becomes clear.  In addition, I would suggest taking a moment to read about 
+until a better solution becomes clear, since this is an evolving topic.  In addition, I would suggest taking a moment to read about 
 [view encapsulation](https://blog.thoughtram.io/angular/2015/06/29/shadow-dom-strategies-in-angular2.html) 
 in Angular if you're not already familiar.
 
