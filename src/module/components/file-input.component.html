@@ -1,9 +1,9 @@
-<div class="nfdDragDropHandler" 
-    (click)="fileInput.click()" 
+<div (click)="fileInput.click()" 
     (dragenter)="onDragEnter($event)" 
     (dragleave)="onDragLeave($event)" 
     (dragover)="onDragOver($event)" 
     (drop)="onDrop($event)"
+    [class]="'nfdDragDropHandler ' + containerDivClass"
     [class.nfdDragging]="dragging">
 
     <!-- We need a dummy div around the content block so that there's always

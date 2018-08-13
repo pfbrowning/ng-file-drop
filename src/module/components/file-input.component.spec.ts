@@ -37,7 +37,7 @@ describe('File Input Component', () => {
         handlerInstance = handlerFixture.componentInstance;
 
         // Query to find the handler container div
-        dropHandlerDiv  = handlerFixture.debugElement.query(By.css('div.nfdDragDropHandler')).nativeElement;
+        dropHandlerDiv  = handlerFixture.debugElement.query(By.css('div:first-of-type')).nativeElement;
         // Query for the file input
         fileInput = handlerFixture.debugElement.query(By.css('input[type=file]')).nativeElement;
 
@@ -320,22 +320,35 @@ describe('File Input Component', () => {
 
         // Simulate the user starting to drag a file
         dropHandlerDiv.dispatchEvent(new Event('dragenter'));
+        handlerFixture.detectChanges();
 
         /* The dragover event happens many times during a file drag,
         so we'll roughly simulate that here*/
         for (let i = 0; i < 10; i++) {
             dropHandlerDiv.dispatchEvent(new Event('dragover'));
+            handlerFixture.detectChanges();
         }
 
         // The component should be in a dragging state after dragenter
         expect(handlerInstance.dragging).toBe(true);
+        expect(dropHandlerDiv.getAttribute('class')).toBe("nfdDragDropHandler nfdDragging");
 
         // Simulate the user dragging the file out of the handler div
         dropHandlerDiv.dispatchEvent(new Event('dragleave'));
+        handlerFixture.detectChanges();
 
         // The component should no longer be in a dragging state after dragleave
         expect(handlerInstance.dragging).toBe(false);
+        expect(dropHandlerDiv.getAttribute('class')).toBe("nfdDragDropHandler");
+    })
 
+    it('should properly apply consumer-provided CSS classes', () => {
+        // Apply custom CSS classes as input properties
+        handlerInstance.containerDivClass = "consumerProvidedClass1 consumerProvidedClass2";
+        handlerFixture.detectChanges();
+
+        // Ensure that the CSS is properly applied to the DOM
+        expect(dropHandlerDiv.getAttribute('class')).toBe("nfdDragDropHandler consumerProvidedClass1 consumerProvidedClass2");
     })
 });
 

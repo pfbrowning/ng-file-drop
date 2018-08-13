@@ -18,6 +18,8 @@ export class FileInputComponent {
   @Input() allowedExtensions: string;
   /**Optional max file size in bytes*/
   @Input() maxFileSize: number;
+  /**Consumer-provided classes to apply to the container div */
+  @Input() containerDivClass: string = '';
   /**Emits an array of files when the selection is changed or cleared*/
   @Output() selectionChanged = new EventEmitter<File[]>();
   /**Emits an array of [FileRejection](https://pfbrowning.github.io/ng-file-drop/doc/classes/FileRejection.html)
