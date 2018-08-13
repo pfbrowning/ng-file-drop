@@ -40,13 +40,17 @@ import { FileDropModule } from '@browninglogic/ng-file-drop';
 export class AppModule {
 }
 ```
+## Upgrade Notes
+* As of version 1.1.0, the preferred approach for styling is now to apply your own
+CSS classes via the containerDivClass property, rather than overriding the internal
+nfdDragDropHandler class.  See the usage and styling section for details.
 
 ## Usage
 By design, the component has no display of its own and only displays the content that you place inside it.  To use it, simply place an nfd-file-input component within your template and place the non-interactive content that you want to display inside.  The provided content will be displayed, and clicking anywhere on the component will open the browser's file selection dialog.
 
 Consider this example from the [demo](https://pfbrowning.github.io/ng-file-drop):
 ```html
-<nfd-file-input #fileInput (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
+<nfd-file-input #fileInput containerDivClass="fileInputDemo" (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
   <ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
   <!-- If there are selected files, then show them in a list. -->
   <ng-template #filesSelected>
@@ -73,47 +77,40 @@ Consider this example from the [demo](https://pfbrowning.github.io/ng-file-drop)
 |filesSelected|Component Property|Boolean|Denotes whether any files are currently selected.|
 |selectedFiles|Component Property|Array<FileRejection>|Exposes an array of the currently selected files.|
 |dragging|Component Property|Boolean|Denotes whether the user is currently dragging a file.  Useful for changing the bound content for the duration of the drag.|
+|containerDivClass|Optional Input Property|String|CSS classes to apply to the file input container div|
 |maxFileSize|Optional Input Property|Number|The max file size in bytes to validate for on file selection.|
 |allowedExtensions|Optional Input Property|String|A comma-separated list of file extensions to validate on file selection.|
 |filesRejected|Event||This event is emitted when allowedExtensions or maxFileSize are specified and the user selects a file which violates either constraint.  It emits an array of file rejections, each of which contains the file itself and an enum stating which constraint the file violated.|
 |clearSelection|Method||Clears the current selection|
 
 ## Styling
-The nfdDragDropHandler class can be used to style the container div.
+You can apply your own styles using the containerDivClass property.
 In addition, the nfdDragging class can be used to apply styles while the
 user is dragging files over the component, similar to the CSS hover selector.
 
-Both of the aforementioned classes must be used with the ng-deep combinator.
-The ng-deep combinator is necessary in order to specify that styles should be 
-applied to child components, such as ng-file-drop.  It's worth noting that ng-deep is
-[deprecated](https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep) and is a
-[temporary solution](https://hackernoon.com/the-new-angular-ng-deep-and-the-shadow-piercing-combinators-deep-and-drop-4b088dbe459) 
-until a better solution becomes clear, since this is an evolving topic.  In addition, I would suggest taking a moment to read about 
-[view encapsulation](https://blog.thoughtram.io/angular/2015/06/29/shadow-dom-strategies-in-angular2.html) 
-in Angular if you're not already familiar.
-
 Consider the following example CSS, taken directly from the 
 [demo](https://pfbrowning.github.io/ng-file-drop):
-
+### Global Styles
 ```css
-/* Apply some simple styles to the container div directly. */
-::ng-deep .nfdDragDropHandler {
+/* Apply some simple styles to the container div. */
+.fileInputDemo {
     cursor: pointer;
     background-color: #e6e6e6;
     border: 1px dashed grey;
     border-radius: 10px;
     padding: 10px 18px;
     text-align: center;
-    width:400px;
 }
 
 /* Set a light blue background when in a dragging or hovering state */
-::ng-deep .nfdDragDropHandler.nfdDragging,
-::ng-deep .nfdDragDropHandler:hover
+.fileInputDemo.nfdDragging,
+.fileInputDemo:hover
  {
     background-color:lightblue;
 }
-
+```
+### Component Styles
+```css
 /* Remove the margin / padding / bullets from the file list */
 ul.fileList {
     padding: 0;
@@ -123,6 +120,23 @@ ul.fileList {
 ul.fileList li {
     margin:0;
     list-style:none;
+}
+
+/*
+If you're applying styles to your containerDivClass from a component stylesheet, rather than
+from a global stylesheet, then apply the ::ng-deep combinator in order to apply 
+your styles within the modal-window component.  The shadow-piercing operators 
+were recently removed without replacement in the evolving W3C spec.  This is an 
+evolving topic and ng-deep is Angular's answer to this for the time being, although 
+it's marked as deprecated and thus should be considered a temporary solution.  
+I would suggest using this with caution in case the Angular team removes ng-deep 
+before a clear replacement comes around.  See:
+https://stackoverflow.com/questions/47024236/what-to-use-in-place-of-ng-deep
+https://hackernoon.com/the-new-angular-ng-deep-and-the-shadow-piercing-combinators-deep-and-drop-4b088dbe459
+https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep
+*/
+::ng-deep .fileInputDemo {
+    width:400px;
 }
 ```
 
