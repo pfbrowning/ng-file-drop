@@ -1,3 +1,20 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/pfbrowning/ng-file-drop/compare/v1.0.0...v1.1.0) (2018-08-13)
+
+
+### Bug Fixes
+
+* **config:** fix dependencies ([94714bc](https://github.com/pfbrowning/ng-file-drop/commit/94714bc))
+* **drophandler:** fix lint error ([90b13a1](https://github.com/pfbrowning/ng-file-drop/commit/90b13a1))
+
+
+### Features
+
+* **demo:** update demo to use consumer-provided styles ([6befe96](https://github.com/pfbrowning/ng-file-drop/commit/6befe96))
+* **drophandler:** provide configurable consumer styles ([e3d66d5](https://github.com/pfbrowning/ng-file-drop/commit/e3d66d5))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/pfbrowning/ng-file-drop/compare/v0.0.5...v1.0.0) (2018-08-04)
 
