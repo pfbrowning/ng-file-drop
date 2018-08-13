@@ -327,10 +327,16 @@
   bootstrap: [AppComponent]
 })
 export class AppModule {
-}</code></pre></div><h2 id="usage">Usage</h2>
+}</code></pre></div><h2 id="upgrade-notes">Upgrade Notes</h2>
+<ul>
+<li>As of version 1.1.0, the preferred approach for styling is now to apply your own
+CSS classes via the containerDivClass property, rather than overriding the internal
+nfdDragDropHandler class.  See the usage and styling section for details.</li>
+</ul>
+<h2 id="usage">Usage</h2>
 <p>By design, the component has no display of its own and only displays the content that you place inside it.  To use it, simply place an nfd-file-input component within your template and place the non-interactive content that you want to display inside.  The provided content will be displayed, and clicking anywhere on the component will open the browser&#39;s file selection dialog.</p>
 <p>Consider this example from the <a href="https://pfbrowning.github.io/ng-file-drop">demo</a>:</p>
-<div><pre class="line-numbers"><code class="language-html">&lt;nfd-file-input #fileInput (filesRejected)=&quot;onFilesRejected($event)&quot; allowedExtensions=&quot;pdf,doc,docx,xls,xlsx,json&quot; [maxFileSize]=&quot;4194304&quot;&gt;
+<div><pre class="line-numbers"><code class="language-html">&lt;nfd-file-input #fileInput containerDivClass=&quot;fileInputDemo&quot; (filesRejected)=&quot;onFilesRejected($event)&quot; allowedExtensions=&quot;pdf,doc,docx,xls,xlsx,json&quot; [maxFileSize]=&quot;4194304&quot;&gt;
   &lt;ng-container *ngIf=&quot;fileInput.filesSelected; then filesSelected else noFilesSelected&quot;&gt;&lt;/ng-container&gt;
   &lt;!-- If there are selected files, then show them in a list. --&gt;
   &lt;ng-template #filesSelected&gt;
@@ -379,6 +385,12 @@ export class AppModule {
 <td style="text-align:left">Denotes whether the user is currently dragging a file.  Useful for changing the bound content for the duration of the drag.</td>
 </tr>
 <tr>
+<td style="text-align:left">containerDivClass</td>
+<td style="text-align:left">Optional Input Property</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">CSS classes to apply to the file input container div</td>
+</tr>
+<tr>
 <td style="text-align:left">maxFileSize</td>
 <td style="text-align:left">Optional Input Property</td>
 <td style="text-align:left">Number</td>
@@ -405,38 +417,29 @@ export class AppModule {
 </tbody>
 </table>
 <h2 id="styling">Styling</h2>
-<p>The nfdDragDropHandler class can be used to style the container div.
+<p>You can apply your own styles using the containerDivClass property.
 In addition, the nfdDragging class can be used to apply styles while the
 user is dragging files over the component, similar to the CSS hover selector.</p>
-<p>Both of the aforementioned classes must be used with the ng-deep combinator.
-The ng-deep combinator is necessary in order to specify that styles should be 
-applied to child components, such as ng-file-drop.  It&#39;s worth noting that ng-deep is
-<a href="https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep">deprecated</a> and is a
-<a href="https://hackernoon.com/the-new-angular-ng-deep-and-the-shadow-piercing-combinators-deep-and-drop-4b088dbe459">temporary solution</a> 
-until a better solution becomes clear, since this is an evolving topic.  In addition, I would suggest taking a moment to read about 
-<a href="https://blog.thoughtram.io/angular/2015/06/29/shadow-dom-strategies-in-angular2.html">view encapsulation</a> 
-in Angular if you&#39;re not already familiar.</p>
 <p>Consider the following example CSS, taken directly from the 
 <a href="https://pfbrowning.github.io/ng-file-drop">demo</a>:</p>
-<div><pre class="line-numbers"><code class="language-css">/* Apply some simple styles to the container div directly. */
-::ng-deep .nfdDragDropHandler {
+<h3 id="global-styles">Global Styles</h3>
+<div><pre class="line-numbers"><code class="language-css">/* Apply some simple styles to the container div. */
+.fileInputDemo {
     cursor: pointer;
     background-color: #e6e6e6;
     border: 1px dashed grey;
     border-radius: 10px;
     padding: 10px 18px;
     text-align: center;
-    width:400px;
 }
 
 /* Set a light blue background when in a dragging or hovering state */
-::ng-deep .nfdDragDropHandler.nfdDragging,
-::ng-deep .nfdDragDropHandler:hover
+.fileInputDemo.nfdDragging,
+.fileInputDemo:hover
  {
     background-color:lightblue;
-}
-
-/* Remove the margin / padding / bullets from the file list */
+}</code></pre></div><h3 id="component-styles">Component Styles</h3>
+<div><pre class="line-numbers"><code class="language-css">/* Remove the margin / padding / bullets from the file list */
 ul.fileList {
     padding: 0;
     margin: 0;
@@ -445,6 +448,23 @@ ul.fileList {
 ul.fileList li {
     margin:0;
     list-style:none;
+}
+
+/*
+If you&#39;re applying styles to your containerDivClass from a component stylesheet, rather than
+from a global stylesheet, then apply the ::ng-deep combinator in order to apply 
+your styles within the modal-window component.  The shadow-piercing operators 
+were recently removed without replacement in the evolving W3C spec.  This is an 
+evolving topic and ng-deep is Angular&#39;s answer to this for the time being, although 
+it&#39;s marked as deprecated and thus should be considered a temporary solution.  
+I would suggest using this with caution in case the Angular team removes ng-deep 
+before a clear replacement comes around.  See:
+https://stackoverflow.com/questions/47024236/what-to-use-in-place-of-ng-deep
+https://hackernoon.com/the-new-angular-ng-deep-and-the-shadow-piercing-combinators-deep-and-drop-4b088dbe459
+https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep
+*/
+::ng-deep .fileInputDemo {
+    width:400px;
 }</code></pre></div><h2 id="pointer-events">Pointer-Events</h2>
 <p>Since this component is designed to be a drop-in replacement for a file input, it only supports non-interactive display-oriented content.  Pointer-events are disabled on all of the content inside the nfd-file-input component in order to provide consistent &quot;drag&quot; functionality across browsers.  As a side-effect, any pointer-events-based functionality placed inside the component, such as click handlers and :hover selectors, are not supported.  Hover and related CSS selectors can be hooked by using the nfdDragDropHandler CSS class.</p>
 <h2 id="demo">Demo</h2>
