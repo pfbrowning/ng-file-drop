@@ -41,3 +41,20 @@
         }
     }
 }
+
+/* Apply some simple styles to the container div. */
+.fileInputDemo {
+    cursor: pointer;
+    background-color: #e6e6e6;
+    border: 1px dashed grey;
+    border-radius: 10px;
+    padding: 10px 18px;
+    text-align: center;
+}
+
+/* Set a light blue background when in a dragging or hovering state */
+.fileInputDemo.nfdDragging,
+.fileInputDemo:hover
+ {
+    background-color:lightblue;
+}
