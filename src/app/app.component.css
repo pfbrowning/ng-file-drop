@@ -1,0 +1,60 @@
+/* Remove the margin / padding / bullets from the file list */
+ul.fileList {
+    padding: 0;
+    margin: 0;
+}
+
+ul.fileList li {
+    margin:0;
+    list-style:none;
+}
+
+/*
+If you're applying styles to your containerDivClass from a component stylesheet, rather than
+from a global stylesheet, then apply the ::ng-deep combinator in order to apply 
+your styles within the modal-window component.  The shadow-piercing operators 
+were recently removed without replacement in the evolving W3C spec.  This is an 
+evolving topic and ng-deep is Angular's answer to this for the time being, although 
+it's marked as deprecated and thus should be considered a temporary solution.  
+I would suggest using this with caution in case the Angular team removes ng-deep 
+before a clear replacement comes around.  See:
+https://stackoverflow.com/questions/47024236/what-to-use-in-place-of-ng-deep
+https://hackernoon.com/the-new-angular-ng-deep-and-the-shadow-piercing-combinators-deep-and-drop-4b088dbe459
+https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep
+*/
+::ng-deep .fileInputDemo {
+    width:400px;
+    margin:auto;
+}
+
+.fileInputContainer,
+.demoContentContainer {
+    margin-bottom:10px;
+}
+
+::ng-deep .diagnosticsBox li {
+    margin:0;
+    list-style:none;
+}
+
+::ng-deep .diagnosticsBox ul {
+    padding:0;
+    margin:0;
+}
+
+::ng-deep .diagnosticsBox table td:first-child {
+    padding-right: 20px;
+}
+
+::ng-deep .diagnosticsBox td {
+    vertical-align: top;
+}
+
+::ng-deep .diagnosticsBox {
+    background-color:#e6e6e6;
+    border-radius: 10px;
+    border:2px solid lightgrey;
+    padding:10px 15px;
+    margin-bottom:10px;
+    display: inline-block;
+}

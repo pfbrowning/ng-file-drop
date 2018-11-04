@@ -137,6 +137,7 @@ https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep
 */
 ::ng-deep .fileInputDemo {
     width:400px;
+    margin:auto;
 }
 ```
 
