@@ -23,6 +23,8 @@ The motivation for this component is to abstract away the following complexities
 * [@angular/common](https://www.npmjs.com/package/@angular/common) (^6.0.0)
 * [@angular/core](https://www.npmjs.com/package/@angular/core) (^6.0.0)
 
+The library has been tested with both Angular 6 and 7, so you should be fine with either.
+
 ## Installation
 Install `@browninglogic/ng-file-drop` via:
 ```shell
