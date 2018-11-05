@@ -2,13 +2,12 @@
   <img height="256px" width="256px" style="text-align: center;" src="https://cdn.rawgit.com/pfbrowning/ng-file-drop/master/demo/src/assets/logo.svg">
 </p>
 
-# ng-file-drop - Configurable Angular file input component with cross-browser drag &amp; drop functionality
+# ng-file-drop - Configurable file input component with cross-browser drag &amp; drop functionality for Angular 6+
 
 [![npm version](https://badge.fury.io/js/%40browninglogic%2Fng-file-drop.svg)](https://badge.fury.io/js/%40browninglogic%2Fng-file-drop)
 [![Build Status](https://travis-ci.org/pfbrowning/ng-file-drop.svg?branch=master)](https://travis-ci.org/pfbrowning/ng-file-drop)
 [![Coverage Status](https://coveralls.io/repos/github/pfbrowning/ng-file-drop/badge.svg?branch=master)](https://coveralls.io/github/pfbrowning/ng-file-drop?branch=master)
-[![dependency Status](https://david-dm.org/pfbrowning/ng-file-drop/status.svg)](https://david-dm.org/pfbrowning/ng-file-drop)
-[![devDependency Status](https://david-dm.org/pfbrowning/ng-file-drop/dev-status.svg?branch=master)](https://david-dm.org/pfbrowning/ng-file-drop#info=devDependencies)
+[![dependency Status](https://david-dm.org/pfbrowning/ng-file-drop/status.svg?path=projects%2Fng-file-drop)](https://david-dm.org/pfbrowning/ng-file-drop)
 
 ## Introduction
 ng-file-drop is an Angular component intended as a drop-in replacement for `<input type="file">` with custom display content, a bindable `dragging` property, cross-browser file drop support, and file size & type checking.
@@ -20,8 +19,9 @@ The motivation for this component is to abstract away the following complexities
 * Modern browsers generally handle the case of the user dragging and dropping a file on a file input seamlessly: you just drop the file on the input and they're automatically selected.  However, in order to achieve similar functionality in IE11, one must cancel the dragover event and pull the files from event.dataTransfer.files within a drop handler.  Even after doing so, you have to get creative and put the files somewhere else, because you can't programmatically put them in the file input due to [security reasons](https://stackoverflow.com/questions/1696877/how-to-set-a-value-to-a-file-input-in-html).
 * The "accept" attribute only tells the browser to filter the specified file types within the file selection window.  If you want to actually prevent the user from selecting unsupported filetypes, you have to check it yourself with some simple javascript by checking the file [size](https://stackoverflow.com/questions/3717793/javascript-file-upload-size-validation) and [extension](https://stackoverflow.com/questions/44038559/accept-csv-files-only-via-a-html-file-input).  It's important to note that you should *always* implement server-side validation, because a malicious user can easily circumvent any client-side validations.  The purpose of client-side validation is simply to provide a better user experience, and should *never* be considered a substitute for server-side validation.
 
-## Dependencies
-* [Angular](https://angular.io) (*requires* Angular 6 or higher, tested with 6.0.0)
+## Peer Dependencies
+* [@angular/common](https://www.npmjs.com/package/@angular/common) (^6.0.0)
+* [@angular/core](https://www.npmjs.com/package/@angular/core) (^6.0.0)
 
 ## Installation
 Install `@browninglogic/ng-file-drop` via:
