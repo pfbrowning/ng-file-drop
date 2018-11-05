@@ -30,7 +30,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content package-dependencies">
+               <div class="content coverage">
                    <div class="content-data">
 
 
@@ -46,39 +46,66 @@
 
 
 
-    <ol class="breadcrumb">
-        <li>Dependencies</li>
-    </ol>
-    <ul class="dependencies-list">
-        <li>
-            <b>@angular/animations</b> : ~7.0.0</li>
-        <li>
-            <b>@angular/common</b> : ~7.0.0</li>
-        <li>
-            <b>@angular/compiler</b> : ~7.0.0</li>
-        <li>
-            <b>@angular/core</b> : ~7.0.0</li>
-        <li>
-            <b>@angular/forms</b> : ~7.0.0</li>
-        <li>
-            <b>@angular/http</b> : ~7.0.0</li>
-        <li>
-            <b>@angular/platform-browser</b> : ~7.0.0</li>
-        <li>
-            <b>@angular/platform-browser-dynamic</b> : ~7.0.0</li>
-        <li>
-            <b>@angular/router</b> : ~7.0.0</li>
-        <li>
-            <b>core-js</b> : ^2.5.4</li>
-        <li>
-            <b>rxjs</b> : ~6.3.3</li>
-        <li>
-            <b>zone.js</b> : ~0.8.26</li>
-    </ul>
 
 
+<ol class="breadcrumb">
+    <li>Documentation coverage</li>
+</ol>
 
+<div>
+    <img src="./images/coverage-badge-documentation.svg">
+</div>
 
+<table class="table table-bordered coverage" id="coverage-table">
+    <thead class="coverage-header">
+        <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Identifier</th>
+            <th style="text-align:right" class="statements" data-sort-default>Statements</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FileInputComponent.html">projects/ng-file-drop/src/lib/components/file-input.component.ts</a>
+            </td>
+            <td>
+                component
+            </td>
+            <td>
+                FileInputComponent
+            </td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(17/17)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/FileRejection.html">projects/ng-file-drop/src/lib/models/file-rejection.model.ts</a>
+            </td>
+            <td>
+                class
+            </td>
+            <td>
+                FileRejection
+            </td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="js/libs/tablesort.min.js"></script>
+<script src="js/libs/tablesort.number.min.js"></script>
+<script>
+    new Tablesort(document.getElementById('coverage-table'));
+</script>
 
                    </div><div class="search-results">
     <div class="has-results">
@@ -96,8 +123,8 @@
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'package-dependencies';
-            var COMPODOC_CURRENT_PAGE_URL = 'dependencies.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'coverage';
+            var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
        </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>
