@@ -1,8 +1,30 @@
 {
   "name": "@browninglogic/ng-file-drop",
-  "version": "0.0.1",
+  "version": "1.1.1",
   "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0"
+    "@angular/common": "^6.0.0",
+    "@angular/core": "^6.0.0"
+  },
+  "description": "Configurable file input component with cross-browser drag & drop functionality for Angular 6+",
+  "keywords": [
+    "ng",
+    "angular",
+    "library",
+    "file",
+    "input",
+    "drag",
+    "drop"
+  ],
+  "author": {
+    "name": "Patrick Browning",
+    "url": "https://browninglogic.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pfbrowning/ng-file-drop.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pfbrowning/ng-file-drop/issues"
   }
 }
