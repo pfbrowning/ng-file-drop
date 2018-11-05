@@ -1,6 +1,6 @@
 import { TestBed, getTestBed, async, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { FileDropModule } from '../../index';
+import { FileDropModule } from '../lib.module';
 import { FileInputComponent } from './file-input.component';
 import { FileRejection } from '../models/file-rejection.model';
 import { RejectionReasons } from '../models/rejection-reasons.model';
@@ -94,7 +94,7 @@ describe('File Input Component', () => {
         expect(selectionChangedSpy).not.toHaveBeenCalled();
 
         /* Simulate a user file selection through the file input
-        as closely as possible.  The fact that you can't 
+        as closely as possible.  The fact that you can't
         programmatically set the selection of a file input
         prevents us from testing this scenario as accurately as
         I'd like to and severely limits the usefulness of this test,
@@ -243,7 +243,7 @@ describe('File Input Component', () => {
         expect(selectionChangedSpy).toHaveBeenCalledWith([testFile1, testFile2]);
 
         // Select a different file
-        handlerInstance.selectFiles([testFileJson])
+        handlerInstance.selectFiles([testFileJson]);
 
         // Check the state of the component after file selection
         expect(handlerInstance.selectedFiles.length).toBe(1);
@@ -331,7 +331,7 @@ describe('File Input Component', () => {
 
         // The component should be in a dragging state after dragenter
         expect(handlerInstance.dragging).toBe(true);
-        expect(dropHandlerDiv.getAttribute('class')).toBe("nfdDragDropHandler nfdDragging");
+        expect(dropHandlerDiv.getAttribute('class')).toBe('nfdDragDropHandler nfdDragging');
 
         // Simulate the user dragging the file out of the handler div
         dropHandlerDiv.dispatchEvent(new Event('dragleave'));
@@ -339,17 +339,17 @@ describe('File Input Component', () => {
 
         // The component should no longer be in a dragging state after dragleave
         expect(handlerInstance.dragging).toBe(false);
-        expect(dropHandlerDiv.getAttribute('class')).toBe("nfdDragDropHandler");
-    })
+        expect(dropHandlerDiv.getAttribute('class')).toBe('nfdDragDropHandler');
+    });
 
     it('should properly apply consumer-provided CSS classes', () => {
         // Apply custom CSS classes as input properties
-        handlerInstance.containerDivClass = "consumerProvidedClass1 consumerProvidedClass2";
+        handlerInstance.containerDivClass = 'consumerProvidedClass1 consumerProvidedClass2';
         handlerFixture.detectChanges();
 
         // Ensure that the CSS is properly applied to the DOM
-        expect(dropHandlerDiv.getAttribute('class')).toBe("nfdDragDropHandler consumerProvidedClass1 consumerProvidedClass2");
-    })
+        expect(dropHandlerDiv.getAttribute('class')).toBe('nfdDragDropHandler consumerProvidedClass1 consumerProvidedClass2');
+    });
 });
 
 

@@ -134,7 +134,7 @@
       "root": "projects/ng-file-drop",
       "sourceRoot": "projects/ng-file-drop/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "nfd",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

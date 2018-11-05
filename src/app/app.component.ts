@@ -9,7 +9,7 @@ import { FileRejection, RejectionReasons } from 'projects/ng-file-drop/src/publi
 export class AppComponent {
   title = 'ng-file-drop-demo';
 
-  onFilesRejected(rejectedFiles : Array<FileRejection>) {
+  onFilesRejected(rejectedFiles: Array<FileRejection>) {
     /* Provide a rudimentary notification in order to alert the user
     that a file was rejected in order to demonstrate how the file
     rejection logic works. */

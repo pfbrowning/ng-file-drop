@@ -92,7 +92,7 @@ export class FileInputComponent {
         // If the file passes the validation checks, then add it to the selection array.
         this.selectedFiles.push(file);
       }
-    })
+    });
 
     this.selectionChanged.emit(this.selectedFiles);
 
