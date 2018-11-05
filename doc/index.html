@@ -44,18 +44,20 @@
 <a href="https://david-dm.org/pfbrowning/ng-file-drop"><img src="https://david-dm.org/pfbrowning/ng-file-drop/status.svg?path=projects%2Fng-file-drop" alt="dependency Status" class="img-responsive"></a></p>
 <h2 id="introduction">Introduction</h2>
 <p>ng-file-drop is an Angular component intended as a drop-in replacement for <code>&lt;input type=&quot;file&quot;&gt;</code> with custom display content, a bindable <code>dragging</code> property, cross-browser file drop support, and file size &amp; type checking.</p>
-<h2 id="motivation">Motivation</h2>
-<p>The motivation for this component is to abstract away the following complexities of the native <code>&lt;input type=&quot;file&quot;&gt;</code> and the HTML5 drag &amp; drop functionality:</p>
-<ul>
-<li>The visual customization that&#39;s possible on a native <code>&lt;input type=&quot;file&quot;&gt;</code> is extremely limited.  If one wants to display custom content for a file input, such as a styled list of selected files, they must resort to one of <a href="https://stackoverflow.com/questions/5813344/how-to-customize-input-type-file">a number of hacks</a>.</li>
-<li>Setting a &quot;:drag&quot;-like style on an element with children (similar to the CSS :hover selector) also involves resorting to one of <a href="https://stackoverflow.com/questions/7110353/html5-dragleave-fired-when-hovering-a-child-element">a number of hacks</a>.  Simply setting a property / style on dragenter and removing it on dragleave will not have the desired effect because the dragenter and dragleave events fire on the child elements as you drag through.</li>
-<li>Modern browsers generally handle the case of the user dragging and dropping a file on a file input seamlessly: you just drop the file on the input and they&#39;re automatically selected.  However, in order to achieve similar functionality in IE11, one must cancel the dragover event and pull the files from event.dataTransfer.files within a drop handler.  Even after doing so, you have to get creative and put the files somewhere else, because you can&#39;t programmatically put them in the file input due to <a href="https://stackoverflow.com/questions/1696877/how-to-set-a-value-to-a-file-input-in-html">security reasons</a>.</li>
-<li>The &quot;accept&quot; attribute only tells the browser to filter the specified file types within the file selection window.  If you want to actually prevent the user from selecting unsupported filetypes, you have to check it yourself with some simple javascript by checking the file <a href="https://stackoverflow.com/questions/3717793/javascript-file-upload-size-validation">size</a> and <a href="https://stackoverflow.com/questions/44038559/accept-csv-files-only-via-a-html-file-input">extension</a>.  It&#39;s important to note that you should <em>always</em> implement server-side validation, because a malicious user can easily circumvent any client-side validations.  The purpose of client-side validation is simply to provide a better user experience, and should <em>never</em> be considered a substitute for server-side validation.</li>
-</ul>
 <h2 id="peer-dependencies">Peer Dependencies</h2>
 <ul>
 <li><a href="https://www.npmjs.com/package/@angular/common">@angular/common</a> (^6.0.0)</li>
 <li><a href="https://www.npmjs.com/package/@angular/core">@angular/core</a> (^6.0.0)</li>
+</ul>
+<p>The library has been tested with both Angular 6 and 7, so you should be fine with either.</p>
+<h2 id="upgrade-notes">Upgrade Notes</h2>
+<ul>
+<li>As of version 2.0.0, the nfdDragging class has been renamed to nfd-dragging.  If
+you&#39;re already using the nfdDragging class, then rename it accordingly in your
+stylesheets upon upgrading to 2.0.0.</li>
+<li>As of version 1.1.0, the preferred approach for styling is now to apply your own
+CSS classes via the containerDivClass property, rather than overriding the internal
+nfdDragDropHandler class.  See the usage and styling section for details.</li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p>Install <code>@browninglogic/ng-file-drop</code> via:</p>
@@ -68,20 +70,22 @@
   bootstrap: [AppComponent]
 })
 export class AppModule {
-}</code></pre></div><h2 id="upgrade-notes">Upgrade Notes</h2>
+}</code></pre></div><h2 id="motivation">Motivation</h2>
+<p>The motivation for this component is to abstract away the following complexities of the native <code>&lt;input type=&quot;file&quot;&gt;</code> and the HTML5 drag &amp; drop functionality:</p>
 <ul>
-<li>As of version 1.1.0, the preferred approach for styling is now to apply your own
-CSS classes via the containerDivClass property, rather than overriding the internal
-nfdDragDropHandler class.  See the usage and styling section for details.</li>
+<li>The visual customization that&#39;s possible on a native <code>&lt;input type=&quot;file&quot;&gt;</code> is extremely limited.  If one wants to display custom content for a file input, such as a styled list of selected files, they must resort to one of <a href="https://stackoverflow.com/questions/5813344/how-to-customize-input-type-file">a number of hacks</a>.</li>
+<li>Setting a &quot;:drag&quot;-like style on an element with children (similar to the CSS :hover selector) also involves resorting to one of <a href="https://stackoverflow.com/questions/7110353/html5-dragleave-fired-when-hovering-a-child-element">a number of hacks</a>.  Simply setting a property / style on dragenter and removing it on dragleave will not have the desired effect because the dragenter and dragleave events fire on the child elements as you drag through.</li>
+<li>Modern browsers generally handle the case of the user dragging and dropping a file on a file input seamlessly: you just drop the file on the input and they&#39;re automatically selected.  However, in order to achieve similar functionality in IE11, one must cancel the dragover event and pull the files from event.dataTransfer.files within a drop handler.  Even after doing so, you have to get creative and put the files somewhere else, because you can&#39;t programmatically put them in the file input due to <a href="https://stackoverflow.com/questions/1696877/how-to-set-a-value-to-a-file-input-in-html">security reasons</a>.</li>
+<li>The &quot;accept&quot; attribute only tells the browser to filter the specified file types within the file selection window.  If you want to actually prevent the user from selecting unsupported filetypes, you have to check it yourself with some simple javascript by checking the file <a href="https://stackoverflow.com/questions/3717793/javascript-file-upload-size-validation">size</a> and <a href="https://stackoverflow.com/questions/44038559/accept-csv-files-only-via-a-html-file-input">extension</a>.  It&#39;s important to note that you should <em>always</em> implement server-side validation, because a malicious user can easily circumvent any client-side validations.  The purpose of client-side validation is simply to provide a better user experience, and should <em>never</em> be considered a substitute for server-side validation.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <p>By design, the component has no display of its own and only displays the content that you place inside it.  To use it, simply place an nfd-file-input component within your template and place the non-interactive content that you want to display inside.  The provided content will be displayed, and clicking anywhere on the component will open the browser&#39;s file selection dialog.</p>
 <p>Consider this example from the <a href="https://pfbrowning.github.io/ng-file-drop">demo</a>:</p>
-<div><pre class="line-numbers"><code class="language-html">&lt;nfd-file-input #fileInput containerDivClass=&quot;fileInputDemo&quot; (filesRejected)=&quot;onFilesRejected($event)&quot; allowedExtensions=&quot;pdf,doc,docx,xls,xlsx,json&quot; [maxFileSize]=&quot;4194304&quot;&gt;
+<div><pre class="line-numbers"><code class="language-html">&lt;nfd-file-input #fileInput containerDivClass=&quot;file-input-demo&quot; (filesRejected)=&quot;onFilesRejected($event)&quot; allowedExtensions=&quot;pdf,doc,docx,xls,xlsx,json&quot; [maxFileSize]=&quot;4194304&quot;&gt;
   &lt;ng-container *ngIf=&quot;fileInput.filesSelected; then filesSelected else noFilesSelected&quot;&gt;&lt;/ng-container&gt;
   &lt;!-- If there are selected files, then show them in a list. --&gt;
   &lt;ng-template #filesSelected&gt;
-    &lt;ul class=&quot;fileList&quot;&gt;
+    &lt;ul class=&quot;file-list&quot;&gt;
       &lt;li *ngFor=&quot;let file of fileInput.selectedFiles&quot;&gt;
         {{file[&#39;name&#39;]}}
       &lt;/li&gt;
@@ -97,7 +101,7 @@ nfdDragDropHandler class.  See the usage and styling section for details.</li>
   &lt;/ng-template&gt;
 &lt;/nfd-file-input&gt;
 &lt;!-- Show a &quot;Clear Selection&quot; button when files are selected in order to demonstrate the clearSelection functionality.--&gt;
-&lt;input type=&quot;button&quot; *ngIf=&quot;fileInput.filesSelected&quot; (click)=&quot;fileInput.clearSelection()&quot; value=&quot;Clear Selection&quot; class=&quot;clearButton&quot;&gt;</code></pre></div><table class="table table-bordered compodoc-table">
+&lt;input type=&quot;button&quot; *ngIf=&quot;fileInput.filesSelected&quot; (click)=&quot;fileInput.clearSelection()&quot; value=&quot;Clear Selection&quot;&gt;</code></pre></div><table class="table table-bordered compodoc-table">
 <thead>
 <tr>
 <th align="left">Name</th>
@@ -159,13 +163,13 @@ nfdDragDropHandler class.  See the usage and styling section for details.</li>
 </table>
 <h2 id="styling">Styling</h2>
 <p>You can apply your own styles using the containerDivClass property.
-In addition, the nfdDragging class can be used to apply styles while the
+In addition, the nfd-dragging class can be used to apply styles while the
 user is dragging files over the component, similar to the CSS hover selector.</p>
 <p>Consider the following example CSS, taken directly from the 
 <a href="https://pfbrowning.github.io/ng-file-drop">demo</a>:</p>
 <h3 id="global-styles">Global Styles</h3>
 <div><pre class="line-numbers"><code class="language-css">/* Apply some simple styles to the container div. */
-.fileInputDemo {
+.file-input-demo {
     cursor: pointer;
     background-color: #e6e6e6;
     border: 1px dashed grey;
@@ -175,18 +179,18 @@ user is dragging files over the component, similar to the CSS hover selector.</p
 }
 
 /* Set a light blue background when in a dragging or hovering state */
-.fileInputDemo.nfdDragging,
-.fileInputDemo:hover
+.file-input-demo.nfd-dragging,
+.file-input-demo:hover
  {
     background-color:lightblue;
 }</code></pre></div><h3 id="component-styles">Component Styles</h3>
 <div><pre class="line-numbers"><code class="language-css">/* Remove the margin / padding / bullets from the file list */
-ul.fileList {
+ul.file-list {
     padding: 0;
     margin: 0;
 }
 
-ul.fileList li {
+ul.file-list li {
     margin:0;
     list-style:none;
 }
@@ -204,7 +208,7 @@ https://stackoverflow.com/questions/47024236/what-to-use-in-place-of-ng-deep
 https://hackernoon.com/the-new-angular-ng-deep-and-the-shadow-piercing-combinators-deep-and-drop-4b088dbe459
 https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep
 */
-::ng-deep .fileInputDemo {
+::ng-deep .file-input-demo {
     width:400px;
     margin:auto;
 }</code></pre></div><h2 id="pointer-events">Pointer-Events</h2>

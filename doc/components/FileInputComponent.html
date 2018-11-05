@@ -1330,7 +1330,7 @@ export class FileInputComponent {
     (dragover)&#x3D;&quot;onDragOver($event)&quot; 
     (drop)&#x3D;&quot;onDrop($event)&quot;
     [class]&#x3D;&quot;&#x27;nfdDragDropHandler &#x27; + containerDivClass&quot;
-    [class.nfdDragging]&#x3D;&quot;dragging&quot;&gt;
+    [class.nfd-dragging]&#x3D;&quot;dragging&quot;&gt;
 
     &lt;!-- We need a dummy div around the content block so that there&#x27;s always
     a child to apply pointer-events:none to even when the provided content is just a 
@@ -1368,7 +1368,7 @@ export class FileInputComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div (click)="fileInput.click()"     (dragenter)="onDragEnter($event)"     (dragleave)="onDragLeave($event)"     (dragover)="onDragOver($event)"     (drop)="onDrop($event)"    [class]="\'nfdDragDropHandler \' + containerDivClass"    [class.nfdDragging]="dragging">    <!-- We need a dummy div around the content block so that there\'s always    a child to apply pointer-events:none to even when the provided content is just a     text node and, by extension, prevent Firefox from emitting drag events on text nodes.    https://stackoverflow.com/a/18582960 -->    <div>        <ng-content></ng-content>    </div>    <input type="file" #fileInput style="display:none;" (change)="onChange(Array.from($event.target.files))" multiple [accept]="allowedExtensions"></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div (click)="fileInput.click()"     (dragenter)="onDragEnter($event)"     (dragleave)="onDragLeave($event)"     (dragover)="onDragOver($event)"     (drop)="onDrop($event)"    [class]="\'nfdDragDropHandler \' + containerDivClass"    [class.nfd-dragging]="dragging">    <!-- We need a dummy div around the content block so that there\'s always    a child to apply pointer-events:none to even when the provided content is just a     text node and, by extension, prevent Firefox from emitting drag events on text nodes.    https://stackoverflow.com/a/18582960 -->    <div>        <ng-content></ng-content>    </div>    <input type="file" #fileInput style="display:none;" (change)="onChange(Array.from($event.target.files))" multiple [accept]="allowedExtensions"></div></div>'
     var COMPONENTS = [{'name': 'FileInputComponent', 'selector': 'nfd-file-input'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FileInputComponent'};
