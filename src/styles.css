@@ -1,5 +1,5 @@
 /* Apply some simple styles to the container div. */
-.fileInputDemo {
+.file-input-demo {
     cursor: pointer;
     background-color: #e6e6e6;
     border: 1px dashed grey;
@@ -9,8 +9,8 @@
 }
 
 /* Set a light blue background when in a dragging or hovering state */
-.fileInputDemo.nfdDragging,
-.fileInputDemo:hover
+.file-input-demo.nfd-dragging,
+.file-input-demo:hover
  {
     background-color:lightblue;
 }

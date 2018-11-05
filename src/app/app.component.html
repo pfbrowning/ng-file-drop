@@ -9,14 +9,14 @@
 </div>
 
 <section class="align-center">
-  <div class="demoContentContainer">
+  <div class="demo-content-container">
     <h2>Select a few files</h2>
-    <div class="fileInputContainer">
-      <nfd-file-input #fileInput containerDivClass="fileInputDemo" (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
+    <div class="file-input-container">
+      <nfd-file-input #fileInput containerDivClass="file-input-demo" (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
         <ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
         <!-- If there are selected files, then show them in a list. -->
         <ng-template #filesSelected>
-          <ul class="fileList">
+          <ul class="file-list">
             <li *ngFor="let file of fileInput.selectedFiles">
               {{file['name']}}
             </li>
@@ -33,7 +33,7 @@
       </nfd-file-input>
     </div>
     <!-- Show a "Clear Selection" button when files are selected in order to demonstrate the clearSelection functionality.-->
-    <input type="button" *ngIf="fileInput.filesSelected" (click)="fileInput.clearSelection()" value="Clear Selection" class="clearButton">
+    <input type="button" *ngIf="fileInput.filesSelected" (click)="fileInput.clearSelection()" value="Clear Selection">
   </div>
 
   <h2>Diagnostics Info</h2>

@@ -331,7 +331,7 @@ describe('File Input Component', () => {
 
         // The component should be in a dragging state after dragenter
         expect(handlerInstance.dragging).toBe(true);
-        expect(dropHandlerDiv.getAttribute('class')).toBe('nfdDragDropHandler nfdDragging');
+        expect(dropHandlerDiv.getAttribute('class')).toBe('nfdDragDropHandler nfd-dragging');
 
         // Simulate the user dragging the file out of the handler div
         dropHandlerDiv.dispatchEvent(new Event('dragleave'));

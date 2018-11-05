@@ -43,6 +43,9 @@ export class AppModule {
 }
 ```
 ## Upgrade Notes
+* As of version 2.0.0, the nfdDragging class has been renamed to nfd-dragging.  If
+you're already using the nfdDragging class, then rename it accordingly in your
+stylesheets upon upgrading to 2.0.0.
 * As of version 1.1.0, the preferred approach for styling is now to apply your own
 CSS classes via the containerDivClass property, rather than overriding the internal
 nfdDragDropHandler class.  See the usage and styling section for details.
@@ -52,11 +55,11 @@ By design, the component has no display of its own and only displays the content
 
 Consider this example from the [demo](https://pfbrowning.github.io/ng-file-drop):
 ```html
-<nfd-file-input #fileInput containerDivClass="fileInputDemo" (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
+<nfd-file-input #fileInput containerDivClass="file-input-demo" (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
   <ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
   <!-- If there are selected files, then show them in a list. -->
   <ng-template #filesSelected>
-    <ul class="fileList">
+    <ul class="file-list">
       <li *ngFor="let file of fileInput.selectedFiles">
         {{file['name']}}
       </li>
@@ -72,7 +75,7 @@ Consider this example from the [demo](https://pfbrowning.github.io/ng-file-drop)
   </ng-template>
 </nfd-file-input>
 <!-- Show a "Clear Selection" button when files are selected in order to demonstrate the clearSelection functionality.-->
-<input type="button" *ngIf="fileInput.filesSelected" (click)="fileInput.clearSelection()" value="Clear Selection" class="clearButton">
+<input type="button" *ngIf="fileInput.filesSelected" (click)="fileInput.clearSelection()" value="Clear Selection">
 ```
 |Name|Category|Type|Description|
 |:---|:---|:---|:---|
@@ -87,7 +90,7 @@ Consider this example from the [demo](https://pfbrowning.github.io/ng-file-drop)
 
 ## Styling
 You can apply your own styles using the containerDivClass property.
-In addition, the nfdDragging class can be used to apply styles while the
+In addition, the nfd-dragging class can be used to apply styles while the
 user is dragging files over the component, similar to the CSS hover selector.
 
 Consider the following example CSS, taken directly from the 
@@ -95,7 +98,7 @@ Consider the following example CSS, taken directly from the
 ### Global Styles
 ```css
 /* Apply some simple styles to the container div. */
-.fileInputDemo {
+.file-input-demo {
     cursor: pointer;
     background-color: #e6e6e6;
     border: 1px dashed grey;
@@ -105,8 +108,8 @@ Consider the following example CSS, taken directly from the
 }
 
 /* Set a light blue background when in a dragging or hovering state */
-.fileInputDemo.nfdDragging,
-.fileInputDemo:hover
+.file-input-demo.nfd-dragging,
+.file-input-demo:hover
  {
     background-color:lightblue;
 }
@@ -114,12 +117,12 @@ Consider the following example CSS, taken directly from the
 ### Component Styles
 ```css
 /* Remove the margin / padding / bullets from the file list */
-ul.fileList {
+ul.file-list {
     padding: 0;
     margin: 0;
 }
 
-ul.fileList li {
+ul.file-list li {
     margin:0;
     list-style:none;
 }
@@ -137,7 +140,7 @@ https://stackoverflow.com/questions/47024236/what-to-use-in-place-of-ng-deep
 https://hackernoon.com/the-new-angular-ng-deep-and-the-shadow-piercing-combinators-deep-and-drop-4b088dbe459
 https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep
 */
-::ng-deep .fileInputDemo {
+::ng-deep .file-input-demo {
     width:400px;
     margin:auto;
 }
