@@ -12,18 +12,19 @@
 ## Introduction
 ng-file-drop is an Angular component intended as a drop-in replacement for `<input type="file">` with custom display content, a bindable `dragging` property, cross-browser file drop support, and file size & type checking.
 
-## Motivation
-The motivation for this component is to abstract away the following complexities of the native `<input type="file">` and the HTML5 drag & drop functionality:
-* The visual customization that's possible on a native `<input type="file">` is extremely limited.  If one wants to display custom content for a file input, such as a styled list of selected files, they must resort to one of [a number of hacks](https://stackoverflow.com/questions/5813344/how-to-customize-input-type-file).
-* Setting a ":drag"-like style on an element with children (similar to the CSS :hover selector) also involves resorting to one of [a number of hacks](https://stackoverflow.com/questions/7110353/html5-dragleave-fired-when-hovering-a-child-element).  Simply setting a property / style on dragenter and removing it on dragleave will not have the desired effect because the dragenter and dragleave events fire on the child elements as you drag through.
-* Modern browsers generally handle the case of the user dragging and dropping a file on a file input seamlessly: you just drop the file on the input and they're automatically selected.  However, in order to achieve similar functionality in IE11, one must cancel the dragover event and pull the files from event.dataTransfer.files within a drop handler.  Even after doing so, you have to get creative and put the files somewhere else, because you can't programmatically put them in the file input due to [security reasons](https://stackoverflow.com/questions/1696877/how-to-set-a-value-to-a-file-input-in-html).
-* The "accept" attribute only tells the browser to filter the specified file types within the file selection window.  If you want to actually prevent the user from selecting unsupported filetypes, you have to check it yourself with some simple javascript by checking the file [size](https://stackoverflow.com/questions/3717793/javascript-file-upload-size-validation) and [extension](https://stackoverflow.com/questions/44038559/accept-csv-files-only-via-a-html-file-input).  It's important to note that you should *always* implement server-side validation, because a malicious user can easily circumvent any client-side validations.  The purpose of client-side validation is simply to provide a better user experience, and should *never* be considered a substitute for server-side validation.
-
 ## Peer Dependencies
 * [@angular/common](https://www.npmjs.com/package/@angular/common) (^6.0.0)
 * [@angular/core](https://www.npmjs.com/package/@angular/core) (^6.0.0)
 
 The library has been tested with both Angular 6 and 7, so you should be fine with either.
+
+## Upgrade Notes
+* As of version 2.0.0, the nfdDragging class has been renamed to nfd-dragging.  If
+you're already using the nfdDragging class, then rename it accordingly in your
+stylesheets upon upgrading to 2.0.0.
+* As of version 1.1.0, the preferred approach for styling is now to apply your own
+CSS classes via the containerDivClass property, rather than overriding the internal
+nfdDragDropHandler class.  See the usage and styling section for details.
 
 ## Installation
 Install `@browninglogic/ng-file-drop` via:
@@ -42,13 +43,13 @@ import { FileDropModule } from '@browninglogic/ng-file-drop';
 export class AppModule {
 }
 ```
-## Upgrade Notes
-* As of version 2.0.0, the nfdDragging class has been renamed to nfd-dragging.  If
-you're already using the nfdDragging class, then rename it accordingly in your
-stylesheets upon upgrading to 2.0.0.
-* As of version 1.1.0, the preferred approach for styling is now to apply your own
-CSS classes via the containerDivClass property, rather than overriding the internal
-nfdDragDropHandler class.  See the usage and styling section for details.
+
+## Motivation
+The motivation for this component is to abstract away the following complexities of the native `<input type="file">` and the HTML5 drag & drop functionality:
+* The visual customization that's possible on a native `<input type="file">` is extremely limited.  If one wants to display custom content for a file input, such as a styled list of selected files, they must resort to one of [a number of hacks](https://stackoverflow.com/questions/5813344/how-to-customize-input-type-file).
+* Setting a ":drag"-like style on an element with children (similar to the CSS :hover selector) also involves resorting to one of [a number of hacks](https://stackoverflow.com/questions/7110353/html5-dragleave-fired-when-hovering-a-child-element).  Simply setting a property / style on dragenter and removing it on dragleave will not have the desired effect because the dragenter and dragleave events fire on the child elements as you drag through.
+* Modern browsers generally handle the case of the user dragging and dropping a file on a file input seamlessly: you just drop the file on the input and they're automatically selected.  However, in order to achieve similar functionality in IE11, one must cancel the dragover event and pull the files from event.dataTransfer.files within a drop handler.  Even after doing so, you have to get creative and put the files somewhere else, because you can't programmatically put them in the file input due to [security reasons](https://stackoverflow.com/questions/1696877/how-to-set-a-value-to-a-file-input-in-html).
+* The "accept" attribute only tells the browser to filter the specified file types within the file selection window.  If you want to actually prevent the user from selecting unsupported filetypes, you have to check it yourself with some simple javascript by checking the file [size](https://stackoverflow.com/questions/3717793/javascript-file-upload-size-validation) and [extension](https://stackoverflow.com/questions/44038559/accept-csv-files-only-via-a-html-file-input).  It's important to note that you should *always* implement server-side validation, because a malicious user can easily circumvent any client-side validations.  The purpose of client-side validation is simply to provide a better user experience, and should *never* be considered a substitute for server-side validation.
 
 ## Usage
 By design, the component has no display of its own and only displays the content that you place inside it.  To use it, simply place an nfd-file-input component within your template and place the non-interactive content that you want to display inside.  The provided content will be displayed, and clicking anywhere on the component will open the browser's file selection dialog.
