@@ -23,7 +23,8 @@ https://hackernoon.com/the-new-angular-ng-deep-and-the-shadow-piercing-combinato
 https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep
 */
 ::ng-deep .file-input-demo {
-    width:400px;
+    max-width: 375px;
+    width:80%;
     margin:auto;
 }
 
@@ -32,29 +33,40 @@ https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep
     margin-bottom:10px;
 }
 
-::ng-deep .diagnosticsBox li {
-    margin:0;
-    list-style:none;
+/* Set flex in order to right-align toolbar buttons as per
+https://material.angular.io/components/toolbar/overview */
+.fill-remaining {
+    flex: 1 1 auto;
 }
 
-::ng-deep .diagnosticsBox ul {
-    padding:0;
-    margin:0;
+/* Slightly increase the side margins on the toolbar buttons 
+to make them look a bit less cramped. */
+.mat-toolbar .mat-raised-button {
+    margin:0px 6px;
 }
 
-::ng-deep .diagnosticsBox table td:first-child {
-    padding-right: 20px;
+/* For small screens */
+@media (max-width:550px) {
+    /* Hide the toolbar buttons */
+    .mat-toolbar .mat-raised-button {
+        display:none;
+    }
+    /* Disable the flex spacer so that it doesn't fill all remaining space 
+    and, by extension, so that we can center the title. */
+    .mat-toolbar .fill-remaining {
+        display: none;
+    }
+    /* Center the title */
+    .mat-toolbar .title {
+        margin: 0px auto;
+    }
 }
 
-::ng-deep .diagnosticsBox td {
-    vertical-align: top;
-}
-
-::ng-deep .diagnosticsBox {
-    background-color:#e6e6e6;
-    border-radius: 10px;
-    border:2px solid lightgrey;
-    padding:10px 15px;
-    margin-bottom:10px;
-    display: inline-block;
+/* Style the Mat Card display to show a few diagnostics properties */
+.diagnostics-card {
+    width:320px;
+    max-width: 80%;
+    margin:12px auto;
+    overflow: auto;
+    text-align: left;
 }

@@ -1,16 +1,19 @@
+<mat-toolbar color="primary">
+  <span class="title">Browninglogic File Drop Demo</span>
+  <span class="fill-remaining"></span>
+  <a mat-raised-button color="primary" href="https://pfbrowning.github.io/ng-file-drop/doc/" target="_blank">Documentation</a>
+  <a mat-raised-button color="primary" href="https://github.com/pfbrowning/ng-file-drop" target="_blank">Github</a>
+</mat-toolbar>
+
 <div style="text-align:center">
-  <img width="300" alt="Angular Logo" src="assets/logo.svg">
-  <h1>
-    Welcome to the <a href="https://github.com/pfbrowning/ng-file-drop" target="_blank">@browninglogic/ng-file-drop</a> demo!
+  <img width="200" alt="Angular Logo" src="assets/logo.svg">
+  <h1 class="mat-h1">
+    Welcome to the Browninglogic File Drop demo!
   </h1>
-  <p>
-    Click <a href="https://pfbrowning.github.io/ng-file-drop/doc/" target="_blank">here</a> to view the documentation or <a href="https://github.com/pfbrowning/ng-file-drop" target="_blank">here</a> to view the Github repo.
-  </p>
 </div>
 
 <section class="align-center">
   <div class="demo-content-container">
-    <h2>Select a few files</h2>
     <div class="file-input-container">
       <nfd-file-input #fileInput containerDivClass="file-input-demo" (filesRejected)="onFilesRejected($event)" allowedExtensions="pdf,doc,docx,xls,xlsx,json" [maxFileSize]="4194304">
         <ng-container *ngIf="fileInput.filesSelected; then filesSelected else noFilesSelected"></ng-container>
@@ -33,48 +36,12 @@
       </nfd-file-input>
     </div>
     <!-- Show a "Clear Selection" button when files are selected in order to demonstrate the clearSelection functionality.-->
-    <input type="button" *ngIf="fileInput.filesSelected" (click)="fileInput.clearSelection()" value="Clear Selection">
+    <button type="button" *ngIf="fileInput.filesSelected" mat-raised-button color="primary" (click)="fileInput.clearSelection()">Clear Selection</button>
   </div>
 
-  <h2>Diagnostics Info</h2>
-  <div class="diagnosticsBox">
-    <table>
-      <tr>
-        <td>Dragging</td>
-        <td>{{fileInput.dragging}}</td>
-      </tr>
-      <tr>
-        <td>Files Selected</td>
-        <td>{{fileInput.filesSelected}}</td>
-      </tr>
-      <tr>
-        <td>Selected Files</td>
-        <td>
-          <ng-container *ngIf="fileInput.filesSelected; then diagnosticsSelectedFiles else diagnosticsNoFilesSelected"></ng-container>
-          <ng-template #diagnosticsSelectedFiles>
-            <ul>
-              <li *ngFor="let file of fileInput.selectedFiles">
-                {{file['name']}}
-              </li>
-            </ul>
-          </ng-template>
-          <ng-template #diagnosticsNoFilesSelected>none</ng-template>
-        </td>
-      </tr>
-      <tr>
-        <td>Max File Size</td>
-        <td>{{fileInput.maxFileSize}} bytes</td>
-      </tr>
-      <tr>
-        <td>Allowed Extensions</td>
-        <td>
-          <ul>
-            <li *ngFor="let extension of fileInput.allowedExtensionsArray">
-              {{extension}}
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </table>
-  </div>
+
+  <mat-card class="diagnostics-card">
+    <mat-card-title>Diagnostics Info</mat-card-title>
+    <mat-card-content><pre>{{diagnosticsInfo | json}}</pre></mat-card-content>
+  </mat-card>
 </section>
