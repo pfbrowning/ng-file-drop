@@ -11,13 +11,16 @@ export class AppComponent {
   @ViewChild('fileInput') fileInput: FileInputComponent;
 
   constructor(private messageService: MessageService) {}
-  
+
   onFilesRejected(rejectedFiles: Array<FileRejection>) {
     /* Provide a toaster notification in order to alert the user
     that a file was rejected in order to demonstrate how the file
     rejection logic works. */
     this.messageService.addAll(rejectedFiles.map(rejection => {
-      return {severity:'warn', summary:'File Rejected', detail:`${rejection.file.name} | ${RejectionReasons[rejection.rejectionReason]}`};
+      return {
+        severity: 'warn',
+        summary: 'File Rejected',
+        detail: `${rejection.file.name} | ${RejectionReasons[rejection.rejectionReason]}`};
     }));
   }
 
