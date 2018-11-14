@@ -331,7 +331,7 @@ describe('File Input Component', () => {
 
         // The component should be in a dragging state after dragenter
         expect(handlerInstance.dragging).toBe(true);
-        expect(dropHandlerDiv.getAttribute('class')).toBe('nfdDragDropHandler nfd-dragging');
+        expect(dropHandlerDiv.getAttribute('class')).toBe('nfd-drag-drop-handler nfd-dragging');
 
         // Simulate the user dragging the file out of the handler div
         dropHandlerDiv.dispatchEvent(new Event('dragleave'));
@@ -339,7 +339,7 @@ describe('File Input Component', () => {
 
         // The component should no longer be in a dragging state after dragleave
         expect(handlerInstance.dragging).toBe(false);
-        expect(dropHandlerDiv.getAttribute('class')).toBe('nfdDragDropHandler');
+        expect(dropHandlerDiv.getAttribute('class')).toBe('nfd-drag-drop-handler');
     });
 
     it('should properly apply consumer-provided CSS classes', () => {
@@ -348,7 +348,7 @@ describe('File Input Component', () => {
         handlerFixture.detectChanges();
 
         // Ensure that the CSS is properly applied to the DOM
-        expect(dropHandlerDiv.getAttribute('class')).toBe('nfdDragDropHandler consumerProvidedClass1 consumerProvidedClass2');
+        expect(dropHandlerDiv.getAttribute('class')).toBe('nfd-drag-drop-handler consumerProvidedClass1 consumerProvidedClass2');
     });
 });
 
