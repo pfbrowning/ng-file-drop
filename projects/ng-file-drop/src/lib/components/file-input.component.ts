@@ -86,7 +86,7 @@ export class FileInputComponent {
         rejectedFiles.push(new FileRejection(file, RejectionReasons.FileSize));
       } else if (this.allowedExtensionsArray != null &&
         // If allowed extensions are specified and the file doesn't match an allowed extension, then reject it.
-        !lodash.some(this.allowedExtensionsArray, extension => file.name.endsWith('.' + extension))) {
+        this.allowedExtensionsArray.filter(extension => file.name.endsWith(`.${extension}`)).length == 0) {
         rejectedFiles.push(new FileRejection(file, RejectionReasons.FileType));
       } else {
         // If the file passes the validation checks, then add it to the selection array.

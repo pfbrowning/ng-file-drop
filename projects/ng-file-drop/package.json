@@ -1,9 +1,6 @@
 {
   "name": "@browninglogic/ng-file-drop",
   "version": "2.0.0",
-  "dependencies": {
-    "lodash": "4.17.11"
-  },
   "peerDependencies": {
     "@angular/common": "^6.0.0 || ^7.0.0",
     "@angular/core": "^6.0.0 || ^7.0.0"
