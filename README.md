@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="256px" width="256px" style="text-align: center;" src="https://cdn.rawgit.com/pfbrowning/ng-file-drop/master/demo/src/assets/logo.svg">
+  <img height="256px" width="256px" style="text-align: center;" src="https://cdn.rawgit.com/pfbrowning/ng-file-drop/master/src/assets/logo.svg">
 </p>
 
 # ng-file-drop - Configurable file input component with cross-browser drag &amp; drop functionality for Angular 6+
@@ -13,12 +13,15 @@
 ng-file-drop is an Angular component intended as a drop-in replacement for `<input type="file">` with custom display content, a bindable `dragging` property, cross-browser file drop support, and file size & type checking.
 
 ## Peer Dependencies
-* [@angular/common](https://www.npmjs.com/package/@angular/common) (^6.0.0)
-* [@angular/core](https://www.npmjs.com/package/@angular/core) (^6.0.0)
+* [@angular/common](https://www.npmjs.com/package/@angular/common) (^6.0.0 or ^7.0.0)
+* [@angular/core](https://www.npmjs.com/package/@angular/core) (^6.0.0 or ^7.0.0)
 
 The library has been tested with both Angular 6 and 7, so you should be fine with either.
 
 ## Upgrade Notes
+* As of version 3.0.0, the nfdDragDropHandler class has been renamed to 
+nfd-drag-drop-handler.  As with nfdDragging, if you're applying your own styles using 
+the nfdDragDropHandler class, then rename it accordingly in your stylesheets upon upgrading.
 * As of version 2.0.0, the nfdDragging class has been renamed to nfd-dragging.  If
 you're already using the nfdDragging class, then rename it accordingly in your
 stylesheets upon upgrading to 2.0.0.
@@ -32,7 +35,7 @@ Install `@browninglogic/ng-file-drop` via:
 npm install --save @browninglogic/ng-file-drop
 ```
 Then include the imported module in your application module:
-```js
+```typescript
 import { FileDropModule } from '@browninglogic/ng-file-drop';
 
 @NgModule({
@@ -142,13 +145,14 @@ https://hackernoon.com/the-new-angular-ng-deep-and-the-shadow-piercing-combinato
 https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep
 */
 ::ng-deep .file-input-demo {
-    width:400px;
+    max-width: 375px;
+    width:80%;
     margin:auto;
 }
 ```
 
 ## Pointer-Events
-Since this component is designed to be a drop-in replacement for a file input, it only supports non-interactive display-oriented content.  Pointer-events are disabled on all of the content inside the nfd-file-input component in order to provide consistent "drag" functionality across browsers.  As a side-effect, any pointer-events-based functionality placed inside the component, such as click handlers and :hover selectors, are not supported.  Hover and related CSS selectors can be hooked by using the nfdDragDropHandler CSS class.
+Since this component is designed to be a drop-in replacement for a file input, it only supports non-interactive display-oriented content.  Pointer-events are disabled on all of the content inside the nfd-file-input component in order to provide consistent "drag" functionality across browsers.  As a side-effect, any pointer-events-based functionality placed inside the component, such as click handlers and :hover selectors, are not supported.  Hover and related CSS selectors can be hooked by using the nfd-drag-drop-handler CSS class.
 
 ## Demo
 View it in action here: https://pfbrowning.github.io/ng-file-drop
