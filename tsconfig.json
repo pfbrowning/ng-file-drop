@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@browninglogic/ng-modal": [
+        "dist/ng-file-drop"
+      ],
+      "@browninglogic/ng-modal/*": [
+        "dist/ng-file-drop/*"
+      ]
+    }
   }
 }
