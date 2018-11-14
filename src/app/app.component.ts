@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { FileRejection, RejectionReasons, FileInputComponent } from 'projects/ng-file-drop/src/public_api';
+import { FileRejection, RejectionReasons, FileInputComponent } from '@browninglogic/ng-file-drop';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -7,17 +8,17 @@ import { FileRejection, RejectionReasons, FileInputComponent } from 'projects/ng
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-file-drop-demo';
   @ViewChild('fileInput') fileInput: FileInputComponent;
 
+  constructor(private messageService: MessageService) {}
+  
   onFilesRejected(rejectedFiles: Array<FileRejection>) {
-    /* Provide a rudimentary notification in order to alert the user
+    /* Provide a toaster notification in order to alert the user
     that a file was rejected in order to demonstrate how the file
     rejection logic works. */
-    const rejectionPrintout = rejectedFiles
-      .map(rejection => `${rejection.file.name} | ${RejectionReasons[rejection.rejectionReason]}`)
-      .join('\n');
-    alert(`Files Rejected:\n${rejectionPrintout}`);
+    this.messageService.addAll(rejectedFiles.map(rejection => {
+      return {severity:'warn', summary:'File Rejected', detail:`${rejection.file.name} | ${RejectionReasons[rejection.rejectionReason]}`};
+    }));
   }
 
   public get diagnosticsInfo(): object {
