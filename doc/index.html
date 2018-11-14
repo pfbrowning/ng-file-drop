@@ -34,7 +34,7 @@
                    <div class="content-data">
 
 <p align="center">
-  <img height="256px" width="256px" style="text-align: center;" src="https://cdn.rawgit.com/pfbrowning/ng-file-drop/master/demo/src/assets/logo.svg">
+  <img height="256px" width="256px" style="text-align: center;" src="https://cdn.rawgit.com/pfbrowning/ng-file-drop/master/src/assets/logo.svg">
 </p>
 
 <h1 id="ng-file-drop-configurable-file-input-component-with-cross-browser-drag-drop-functionality-for-angular-6-">ng-file-drop - Configurable file input component with cross-browser drag &amp; drop functionality for Angular 6+</h1>
@@ -46,12 +46,15 @@
 <p>ng-file-drop is an Angular component intended as a drop-in replacement for <code>&lt;input type=&quot;file&quot;&gt;</code> with custom display content, a bindable <code>dragging</code> property, cross-browser file drop support, and file size &amp; type checking.</p>
 <h2 id="peer-dependencies">Peer Dependencies</h2>
 <ul>
-<li><a href="https://www.npmjs.com/package/@angular/common">@angular/common</a> (^6.0.0)</li>
-<li><a href="https://www.npmjs.com/package/@angular/core">@angular/core</a> (^6.0.0)</li>
+<li><a href="https://www.npmjs.com/package/@angular/common">@angular/common</a> (^6.0.0 or ^7.0.0)</li>
+<li><a href="https://www.npmjs.com/package/@angular/core">@angular/core</a> (^6.0.0 or ^7.0.0)</li>
 </ul>
 <p>The library has been tested with both Angular 6 and 7, so you should be fine with either.</p>
 <h2 id="upgrade-notes">Upgrade Notes</h2>
 <ul>
+<li>As of version 3.0.0, the nfdDragDropHandler class has been renamed to 
+nfd-drag-drop-handler.  As with nfdDragging, if you&#39;re applying your own styles using 
+the nfdDragDropHandler class, then rename it accordingly in your stylesheets upon upgrading.</li>
 <li>As of version 2.0.0, the nfdDragging class has been renamed to nfd-dragging.  If
 you&#39;re already using the nfdDragging class, then rename it accordingly in your
 stylesheets upon upgrading to 2.0.0.</li>
@@ -62,7 +65,7 @@ nfdDragDropHandler class.  See the usage and styling section for details.</li>
 <h2 id="installation">Installation</h2>
 <p>Install <code>@browninglogic/ng-file-drop</code> via:</p>
 <div><pre class="line-numbers"><code class="language-shell">npm install --save &#64;browninglogic/ng-file-drop</code></pre></div><p>Then include the imported module in your application module:</p>
-<div><pre class="line-numbers"><code class="language-js">import { FileDropModule } from &#39;&#64;browninglogic/ng-file-drop&#39;;
+<div><pre class="line-numbers"><code class="language-typescript">import { FileDropModule } from &#39;&#64;browninglogic/ng-file-drop&#39;;
 
 &#64;NgModule({
   declarations: [AppComponent, ...],
@@ -209,10 +212,11 @@ https://hackernoon.com/the-new-angular-ng-deep-and-the-shadow-piercing-combinato
 https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep
 */
 ::ng-deep .file-input-demo {
-    width:400px;
+    max-width: 375px;
+    width:80%;
     margin:auto;
 }</code></pre></div><h2 id="pointer-events">Pointer-Events</h2>
-<p>Since this component is designed to be a drop-in replacement for a file input, it only supports non-interactive display-oriented content.  Pointer-events are disabled on all of the content inside the nfd-file-input component in order to provide consistent &quot;drag&quot; functionality across browsers.  As a side-effect, any pointer-events-based functionality placed inside the component, such as click handlers and :hover selectors, are not supported.  Hover and related CSS selectors can be hooked by using the nfdDragDropHandler CSS class.</p>
+<p>Since this component is designed to be a drop-in replacement for a file input, it only supports non-interactive display-oriented content.  Pointer-events are disabled on all of the content inside the nfd-file-input component in order to provide consistent &quot;drag&quot; functionality across browsers.  As a side-effect, any pointer-events-based functionality placed inside the component, such as click handlers and :hover selectors, are not supported.  Hover and related CSS selectors can be hooked by using the nfd-drag-drop-handler CSS class.</p>
 <h2 id="demo">Demo</h2>
 <p>View it in action here: <a href="https://pfbrowning.github.io/ng-file-drop">https://pfbrowning.github.io/ng-file-drop</a></p>
 <h2 id="browser-support">Browser Support</h2>
