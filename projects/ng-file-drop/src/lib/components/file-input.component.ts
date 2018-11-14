@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { RejectionReasons } from '../models/rejection-reasons.model';
 import { FileRejection } from '../models/file-rejection.model';
-import * as lodash from 'lodash';
 
 /**
  * This class defines the main nfd-file-input component functionality.
