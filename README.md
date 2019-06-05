@@ -2,7 +2,7 @@
   <img height="256px" width="256px" style="text-align: center;" src="https://cdn.rawgit.com/pfbrowning/ng-file-drop/master/src/assets/logo.svg">
 </p>
 
-# ng-file-drop - Configurable file input component with cross-browser drag &amp; drop functionality for Angular 6+
+# ng-file-drop - Configurable file input component with cross-browser drag &amp; drop functionality for Angular 8
 
 [![npm version](https://badge.fury.io/js/%40browninglogic%2Fng-file-drop.svg)](https://badge.fury.io/js/%40browninglogic%2Fng-file-drop)
 [![Build Status](https://travis-ci.org/pfbrowning/ng-file-drop.svg?branch=master)](https://travis-ci.org/pfbrowning/ng-file-drop)
@@ -13,12 +13,11 @@
 ng-file-drop is an Angular component intended as a drop-in replacement for `<input type="file">` with custom display content, a bindable `dragging` property, cross-browser file drop support, and file size & type checking.
 
 ## Peer Dependencies
-* [@angular/common](https://www.npmjs.com/package/@angular/common) (^6.0.0 or ^7.0.0)
-* [@angular/core](https://www.npmjs.com/package/@angular/core) (^6.0.0 or ^7.0.0)
-
-The library has been tested with both Angular 6 and 7, so you should be fine with either.
+* [@angular/common](https://www.npmjs.com/package/@angular/common) (^8.0.0)
+* [@angular/core](https://www.npmjs.com/package/@angular/core) (^8.0.0)
 
 ## Upgrade Notes
+* As of version 4.0.0, Angular 8 is required.  For support for Angular 6 & 7, please refer to version 3.0.0.
 * As of version 3.0.0, the nfdDragDropHandler class has been renamed to 
 nfd-drag-drop-handler.  As with nfdDragging, if you're applying your own styles using 
 the nfdDragDropHandler class, then rename it accordingly in your stylesheets upon upgrading.

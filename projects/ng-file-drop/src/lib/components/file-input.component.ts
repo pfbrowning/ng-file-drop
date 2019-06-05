@@ -26,7 +26,7 @@ export class FileInputComponent {
   @Output() filesRejected = new EventEmitter<FileRejection[]>();
   /**ViewChild handle used interally to clear the file input after
    * the user selects a file from it.*/
-  @ViewChild('fileInput') fileInput;
+  @ViewChild('fileInput', { static: true }) fileInput;
   /**Reference to the Array type so that we can use it in the template
    * https://stackoverflow.com/questions/47586525/parse-array-in-angular-template*/
   public Array = Array;
