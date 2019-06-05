@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { FileRejection, RejectionReasons, FileInputComponent } from '@browninglogic/ng-file-drop';
+import { FileRejection, RejectionReasons, FileInputComponent } from 'projects/ng-file-drop/src/public_api';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -8,7 +8,7 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @ViewChild('fileInput') fileInput: FileInputComponent;
+  @ViewChild('fileInput', { static: true }) fileInput: FileInputComponent;
 
   constructor(private messageService: MessageService) {}
 
