@@ -22,11 +22,15 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_FileDropModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="164,-70 164,-268 332,-268 332,-70 164,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="98,-70 98,-268 398,-268 398,-70 98,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_FileDropModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="174,-78 174,-130 322,-130 322,-78 174,-78"/>
+<polygon fill="none" stroke="#000000" points="242,-78 242,-130 390,-130 390,-78 242,-78"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_FileDropModule_imports</title>
+<polygon fill="none" stroke="#000000" points="106,-78 106,-130 234,-130 234,-78 106,-78"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_FileDropModule_exports</title>
@@ -35,8 +39,8 @@
 <!-- FileInputComponent -->
 <g id="node1" class="node">
 <title>FileInputComponent</title>
-<polygon fill="#ffffb3" stroke="#000000" points="314.1624,-122 181.8376,-122 181.8376,-86 314.1624,-86 314.1624,-122"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">FileInputComponent</text>
+<polygon fill="#ffffb3" stroke="#000000" points="382.1624,-122 249.8376,-122 249.8376,-86 382.1624,-86 382.1624,-122"/>
+<text text-anchor="middle" x="316" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">FileInputComponent</text>
 </g>
 <!-- FileDropModule -->
 <g id="node2" class="node">
@@ -47,20 +51,32 @@
 <!-- FileInputComponent&#45;&gt;FileDropModule -->
 <g id="edge1" class="edge">
 <title>FileInputComponent&#45;&gt;FileDropModule</title>
-<path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
+<path fill="none" stroke="#000000" d="M276.3583,-122.1061C276.3583,-122.1061 276.3583,-140.991 276.3583,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="272.8584,-140.9909 276.3583,-150.991 279.8584,-140.991 272.8584,-140.9909"/>
 </g>
 <!-- FileInputComponent  -->
-<g id="node3" class="node">
+<g id="node4" class="node">
 <title>FileInputComponent </title>
 <polygon fill="#fb8072" stroke="#000000" points="316.1621,-252 179.8379,-252 179.8379,-216 316.1621,-216 316.1621,-252"/>
 <text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">FileInputComponent </text>
 </g>
 <!-- FileDropModule&#45;&gt;FileInputComponent  -->
-<g id="edge2" class="edge">
+<g id="edge3" class="edge">
 <title>FileDropModule&#45;&gt;FileInputComponent </title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
 <polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
+</g>
+<!-- CommonModule -->
+<g id="node3" class="node">
+<title>CommonModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="225.6681,-122 222.6681,-126 201.6681,-126 198.6681,-122 114.3319,-122 114.3319,-86 225.6681,-86 225.6681,-122"/>
+<text text-anchor="middle" x="170" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CommonModule</text>
+</g>
+<!-- CommonModule&#45;&gt;FileDropModule -->
+<g id="edge2" class="edge">
+<title>CommonModule&#45;&gt;FileDropModule</title>
+<path fill="none" stroke="#000000" d="M209.3931,-122.1061C209.3931,-122.1061 209.3931,-140.991 209.3931,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="205.8931,-140.9909 209.3931,-150.991 212.8931,-140.991 205.8931,-140.9909"/>
 </g>
 </g>
 </svg>
